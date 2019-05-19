@@ -1,8 +1,142 @@
 body {
-    background-color: red;
+    background-color: #222222;
 }
 
-.test {
-    background-color: blue;
-    font-size: 30px;
+
+/* Responsiveness */
+
+* {
+    box-sizing: border-box;
+}
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .col-1 {
+        width: 8.33%;
+    }
+    .col-2 {
+        width: 16.66%;
+    }
+    .col-3 {
+        width: 25%;
+    }
+    .col-4 {
+        width: 33.33%;
+    }
+    .col-5 {
+        width: 41.66%;
+    }
+    .col-6 {
+        width: 50%;
+    }
+    .col-7 {
+        width: 58.33%;
+    }
+    .col-8 {
+        width: 66.66%;
+    }
+    .col-9 {
+        width: 75%;
+    }
+    .col-10 {
+        width: 83.33%;
+    }
+    .col-11 {
+        width: 91.66%;
+    }
+    .col-12 {
+        width: 100%;
+    }
+}
+
+
+/* For mobile phones: */
+
+[class*="col-"] {
+    width: 100%;
+}
+
+
+/* Background */
+
+
+/* DIVS */
+
+.full-scale {
+    width: 100%;
+    text-align: center;
+}
+
+.wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.center {
+    display: inline-block;
+}
+
+
+/* FONTS */
+
+h1 {
+    font-size: 2em;
+    font-family: 'Varela Round', sans-serif;
+    color: white;
+}
+
+h2 {
+    font-size: 1.45em;
+    font-family: 'Varela Round', sans-serif;
+    color: white;
+}
+
+h3 {
+    font-size: 1.35em;
+    font-family: 'Varela Round', sans-serif;
+    color: white;
+}
+
+p {
+    font-size: 1.25em;
+    font-family: 'Varela Round', sans-serif;
+    color: white;
+}
+
+li {
+    font-size: 1.25em;
+    font-family: 'Varela Round', sans-serif;
+    display: inline-block;
+    padding: 10px 5px;
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#hauptstadtbiene {
+    color: #eed500;
+    font-size: 1.5em;
+}
+
+
+/* Float clears */
+
+.clearfix {
+    overflow: auto;
+}
+
+.clear-left {
+    clear: left;
+}
+
+.clear-right {
+    clear: right;
+}
+
+.clear-both {
+    clear: both;
 }
