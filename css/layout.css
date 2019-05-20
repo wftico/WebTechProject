@@ -1,5 +1,7 @@
 body {
     background-color: #222222;
+    padding: 0;
+    margin: 0;
 }
 
 
@@ -66,12 +68,39 @@ body {
     background-color: red;
 }
 
+#copyright-background {
+    border-top-width: 1px;
+    border-top-style: solid;
+    background-color: #292929;
+}
+
+.border-bottom-1px {
+    border-bottom-width: 1px;
+    border-color: black;
+    border-bottom-style: solid;
+}
+
+#footer-top-border {
+    margin-top: 20px;
+    border-top-width: 1px;
+    border-top-style: dashed;
+    border-color: grey;
+}
+
+#image-display-yellow-transition {
+    border-bottom-width: 25px;
+    border-bottom-style: solid;
+    border-bottom-color: #eed500;
+}
+
 
 /* DIVS */
 
 .full-scale {
     width: 100%;
     text-align: center;
+    padding: 0;
+    margin: 0;
 }
 
 .image-display {
@@ -90,6 +119,10 @@ body {
     display: inline-block;
 }
 
+.center-text {
+    text-align: center;
+}
+
 
 /* FONTS */
 
@@ -102,7 +135,9 @@ h1 {
 h2 {
     font-size: 1.45em;
     font-family: 'Varela Round', sans-serif;
-    color: white;
+    /* honey color */
+    color: #eed500;
+    font-weight: 400;
 }
 
 h3 {
@@ -112,9 +147,10 @@ h3 {
 }
 
 p {
-    font-size: 1.25em;
+    font-size: 18px;
     font-family: 'Varela Round', sans-serif;
     color: white;
+    margin: 10px;
 }
 
 li {
@@ -131,9 +167,66 @@ ul {
     padding: 0;
 }
 
+a {
+    font-size: 1.15em;
+    font-family: 'Varela Round', sans-serif;
+    color: #eed500;
+    text-decoration: none;
+}
+
+a:visited {
+    color: grey;
+}
+
+a:active {
+    color: white;
+}
+
+a:hover {
+    color: #fbee81;
+}
+
 #hauptstadtbiene {
     color: #eed500;
     font-size: 1.5em;
+}
+
+.a-logo {
+    font-size: 1.15em;
+    font-family: 'Varela Round', sans-serif;
+    color: #eed500;
+    text-decoration: none;
+}
+
+.a-logo:visited {
+    color: #eed500;
+}
+
+.a-logo:active {
+    color: #eed500;
+}
+
+.a-logo:hover {
+    color: #eed500;
+}
+
+.a-menu {
+    font-size: 18px;
+    font-family: 'Varela Round', sans-serif;
+    color: white;
+    text-decoration: none;
+}
+
+.a-menu:visited {
+    color: white;
+}
+
+.a-menu:active {
+    color: #eed500;
+}
+
+.a-menu:hover {
+    color: #fbee81;
 }
 
 
@@ -153,4 +246,12 @@ ul {
 
 .clear-both {
     clear: both;
+}
+
+
+/* margin - paddings */
+
+.padding-bottom-15 {
+    padding: 0px 0px 30px 0px;
+    margin: 0px 0px 30px 0px;
 }
