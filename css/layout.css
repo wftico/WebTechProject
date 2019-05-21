@@ -65,7 +65,6 @@ body {
     background-image: url("../images/hobby-imkerei-lueck-hauptstadtbiene.jpg");
     background-size: cover;
     height: 360px;
-    background-color: red;
 }
 
 #copyright-background {
@@ -227,6 +226,13 @@ a:hover {
 
 .a-menu:hover {
     color: #fbee81;
+}
+
+table {
+    font-size: 18px;
+    font-family: 'Varela Round', sans-serif;
+    color: white;
+    margin: 10px;
 }
 
 
