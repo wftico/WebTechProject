@@ -67,6 +67,18 @@ body {
     height: 360px;
 }
 
+#kontakt-top-border {
+    background-image: url('../images/top-border.png');
+    background-size: cover;
+    height: 100px;
+}
+
+#kontakt-bottom-border {
+    background-image: url('../images/bottom-border.png');
+    background-size: cover;
+    height: 100px;
+}
+
 #copyright-background {
     border-top-width: 1px;
     border-top-style: solid;
@@ -90,6 +102,10 @@ body {
     border-bottom-width: 25px;
     border-bottom-style: solid;
     border-bottom-color: #eed500;
+}
+
+.background-yellow {
+    background-color: #eed500 !important;
 }
 
 
@@ -129,6 +145,7 @@ h1 {
     font-size: 2em;
     font-family: 'Varela Round', sans-serif;
     color: white;
+    font-weight: 400;
 }
 
 h2 {
@@ -143,10 +160,11 @@ h3 {
     font-size: 1.35em;
     font-family: 'Varela Round', sans-serif;
     color: white;
+    font-weight: 400;
 }
 
 p {
-    font-size: 18px;
+    font-size: 16px;
     font-family: 'Varela Round', sans-serif;
     color: white;
     margin: 10px;
@@ -167,7 +185,7 @@ ul {
 }
 
 a {
-    font-size: 1.15em;
+    font-size: 1.0em;
     font-family: 'Varela Round', sans-serif;
     color: #eed500;
     text-decoration: none;
@@ -235,6 +253,17 @@ table {
     margin: 10px;
 }
 
+.font-size-14 {
+    font-size: 14px;
+}
+
+.font-centered-important {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 18px;
+    color: #eed500;
+}
+
 
 /* Float clears */
 
@@ -260,4 +289,12 @@ table {
 .padding-bottom-15 {
     padding: 0px 0px 30px 0px;
     margin: 0px 0px 30px 0px;
+}
+
+.padding-zero {
+    padding: 0;
+}
+
+.margin-zero {
+    margin: 0;
 }
