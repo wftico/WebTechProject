@@ -62,24 +62,24 @@ body {
 /* Background */
 
 .index-image-display {
-    background-image: url("./images/hobby-imkerei-lueck-hauptstadtbiene.jpg");
+    background-image: url("../images/hobby-imkerei-lueck-hauptstadtbiene.jpg");
     background-size: cover;
     height: 420px;
 }
 
 .footer-image-display-test {
-    background-image: url("./images/hobby-imkerei-lueck-hauptstadtbiene.jpg");
+    background-image: url("../images/hobby-imkerei-lueck-hauptstadtbiene.jpg");
     background-size: contain;
 }
 
 #kontakt-top-border {
-    background-image: url('./images/top-border.png');
+    background-image: url('../images/top-border.png');
     background-size: cover;
     height: 100px;
 }
 
 #kontakt-bottom-border {
-    background-image: url('./images/bottom-border.png');
+    background-image: url('../images/bottom-border.png');
     background-size: cover;
     height: 100px;
 }
