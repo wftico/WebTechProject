@@ -9,7 +9,6 @@
     <link href="./css/layout.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
 
-
     <link rel="icon" href="./images/hauptstadtbiene-icon.png" type="image/x-icon" />
     <!-- insert fitting link -->
 
@@ -18,20 +17,8 @@
 
 <body>
 
-    <header>
-        <div class="full-scale border-bottom-1px">
-            <!-- header Menü -->
-            <div class="col-12">
-                <ul>
-                    <li id="hauptstadtbiene"><a class="a-logo" href="./index.html">Hauptstadtbiene</a></li>
-                    <li><a class="a-menu" href="./sortiment.html">Honigsortiment</a></li>
-                    <li><a class="a-menu" href="./kontakt.html">Kontakt</a></li>
-                    <li><a class="a-menu" href="./anfahrt.html">Anfahrt</a></li>
-                    <li><a class="a-menu" href="./impressum.html">Impressum</a></li>
-                </ul>
-            </div>
-            <!-- full scale end, next -->
-        </div>
+    <!-- header gets loaded as react component in ./transformed/header.js -->
+    <header id="header">
     </header>
 
     <!-- top image display || PUT INTO HEADER? -->
@@ -71,9 +58,10 @@
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
-    <!-- Load our React component. -->
+    <!-- Load React components. -->
     <script src="./transformed/like_button.js"></script>
     <script src="./transformed/footer.js"></script>
+    <script src="./transformed/header.js"></script>
 
 </body>
 

@@ -18,20 +18,7 @@
 
 <body>
 
-    <header>
-        <div class="full-scale">
-            <!-- header Menü -->
-            <div class="col-12">
-                <ul>
-                    <li id="hauptstadtbiene"><a class="a-logo" href="../WebTechProject/index.html">Hauptstadtbiene</a></li>
-                    <li><a class="a-menu" href="../WebTechProject/sortiment.html">Honigsortiment</a></li>
-                    <li><a class="a-menu" href="../WebTechProject/kontakt.html">Kontakt</a></li>
-                    <li><a class="a-menu" href="../WebTechProject/anfahrt.html">Anfahrt</a></li>
-                    <li><a class="a-menu" href="../WebTechProject/impressum.html">Impressum</a></li>
-                </ul>
-            </div>
-            <!-- full scale end, next -->
-        </div>
+    <header id="header">
     </header>
 
     <!-- top image display || PUT INTO HEADER? -->
@@ -64,33 +51,17 @@
         <!-- wrapper end -->
     </div>
 
-    <footer>
-        <div class="full-scale">
-            <div class="col-12" id="footer-top-border">
-                <!-- for menu -->
-                <ul>
-                    <li id="hauptstadtbiene">Hauptstadtbiene</li>
-                    <li>Honigsortiment</li>
-                    <li>Kontakt</li>
-                    <li>Anfahrt</li>
-                    <li>Impressum</li>
-                </ul>
-            </div>
-            <div class="col-12">
-                <!-- for description -->
-                <p>Hobby-Imkerei L&uuml;ck - im Norden von Berlin</p>
-            </div>
-            <div class="col-12">
-                <!-- webdesign by -->
-                <p>Webdesign by Martin Nowatschek</p>
-            </div>
-            <div class="col-12" id="copyright-background">
-                <!-- for copyright-->
-                <p>Copyright by Hauptstadtbiene 2019</p>
-            </div>
-        </div>
-        <!-- full-scale end -->
+    <footer id="footer">
     </footer>
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- Load React components. -->
+    <script src="./transformed/footer.js"></script>
+    <script src="./transformed/header.js"></script>
 
 </body>
 
