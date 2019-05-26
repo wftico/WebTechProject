@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
 
 
-    <link rel="icon" href="" type="image/x-icon" />
+    <link rel="icon" href="./images/hauptstadtbiene-icon.png" type="image/x-icon" />
     <!-- insert fitting link -->
 
     <title>Hobby-Imkerei L&uuml;ck</title>
@@ -61,30 +61,9 @@
         <!-- wrapper end -->
     </div>
 
-    <footer>
-        <div class="full-scale">
-            <div class="col-12" id="footer-top-border">
-                <!-- for menu -->
-                <ul>
-                    <li>Kontakt</li>
-                    <li>Anfahrt</li>
-                    <li>Impressum</li>
-                </ul>
-            </div>
-            <div class="col-12">
-                <!-- for description -->
-                <p class="font-size-14">Hobby-Imkerei L&uuml;ck - im Norden von Berlin</p>
-            </div>
-            <div class="col-12">
-                <!-- webdesign by -->
-                <p class="font-size-14">Webdesign by Martin Nowatschek</p>
-            </div>
-            <div class="col-12" id="copyright-background">
-                <!-- for copyright-->
-                <p class="font-size-14">Copyright by Hauptstadtbiene 2019</p>
-            </div>
-        </div>
-        <!-- full-scale end -->
+
+    <!-- footer gets loaded as a react component stored at ./transformed/footer.js -->
+    <footer id="footer">
     </footer>
 
     <!-- Load React. -->
@@ -92,10 +71,9 @@
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
-
-
     <!-- Load our React component. -->
     <script src="./transformed/like_button.js"></script>
+    <script src="./transformed/footer.js"></script>
 
 </body>
 
