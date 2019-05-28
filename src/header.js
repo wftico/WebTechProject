@@ -27,4 +27,3 @@ class Header extends React.Component {
 }
 
 let domContainer = document.querySelector('#header');
-ReactDOM.render( <Header/> , domContainer);
