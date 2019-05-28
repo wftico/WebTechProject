@@ -32,4 +32,4 @@ class Footer extends React.Component {
 }
 
 let domContainer = document.querySelector('#footer');
-ReactDOM.render( <Footer /> , domContainer);
+ReactDOM.render(<Footer/>, domContainer);

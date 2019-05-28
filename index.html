@@ -18,19 +18,12 @@
 <body>
 
     <!-- header gets loaded as react component in ./transformed/header.js -->
-    <script>
-        ReactDOM.render( <Header/> , domContainer);
-    </script>
     <header id="header">
     </header>
 
-    <!-- top image display || PUT INTO HEADER? -->
-    <div class="full-scale">
-        <!-- the image inclusive the bottom yellow border -->
-        <div class="index-image-display" id="image-display-yellow-transition"></div>
-        <!-- the little arrow, below the yellow border -->
-        <div class="col-12"><img src="./images/arrow-25to15.png" alt="yellow arrow" /></div>
-    </div>
+    <!-- index Display gets loaded as react component in ./transformed/ImageDisplay/imageDisplayIndex.js -->
+    <div id="indexImageDisplay"></div>
+
 
     <!-- main content section -->
     <div class="wrapper">
@@ -56,15 +49,17 @@
     <footer id="footer">
     </footer>
 
+
     <!-- Load React. -->
     <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
-    <script src="./src/react/react.production-min.js"></script>
-    <script src="./src/react-dom/react-dom.production-min.js"></script>
+    <script src="./js/react/react.production-min.js"></script>
+    <script src="./js/react-dom/react-dom.production-min.js"></script>
 
     <!-- Load React components. -->
     <script src="./transformed/like_button.js"></script>
     <script src="./transformed/footer.js"></script>
     <script src="./transformed/header.js"></script>
+    <script src="./transformed/ImageDisplay/imageDisplayIndex.js"></script>
 
 </body>
 
