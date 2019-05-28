@@ -1,0 +1,6 @@
+**
+Sorft dafür, dass Skripte im "src" Ordner via Babel kompiliert werden und im "out-dir ." Ordner abgelegt werden. Hier z. B. "./transformed".
+**
+
+npx babel --watch src --out-dir ./transformed --presets react-app/prod
+
