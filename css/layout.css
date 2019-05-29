@@ -51,11 +51,28 @@ body {
     }
 }
 
+[class*="col-"] {
+    float: left;
+    /*
+    border: 1px solid;
+    */
+    /* 1px padding is needed so we can use col-3 col-6 col-3 for example - otherwise they dont fill and have 0 width */ 
+    padding: 1px;
+}
+
+/* del ? */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
 
 /* For mobile phones: */
-
-[class*="col-"] {
-    width: 100%;
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+      width: 100%;
+    }
 }
 
 
@@ -65,6 +82,28 @@ body {
     background-image: url("../images/hobby-imkerei-lueck-hauptstadtbiene.jpg");
     background-size: cover;
     height: 420px;
+    max-width: 100%;
+}
+
+.contacts-image-display {
+    background-image: url("../images/kontakt-notizblock-hobby-imkerei-lueck-3.jpg");
+    background-size: cover;
+    height: 420px;
+    max-width: 100%;
+}
+
+.anfahrt-image-display {
+    background-image: url("../images/anfahrt-hobby-imkerei-lueck-berlin-luebars.jpg");
+    background-size: cover;
+    height: 420px;
+    max-width: 100%;
+}
+
+.impressum-image-display {
+    background-image: url("../images/impressum-datenschutz-imkerei-lueck.jpg");
+    background-size: cover;
+    height: 420px;
+    max-width: 100%;
 }
 
 .footer-image-display-test {
@@ -146,6 +185,40 @@ body {
 .center-text {
     text-align: center;
 }
+
+/* linebar - looks like: ------ TEXT ------
+Put a div with class "col-12" and "linebar", inside of it, 
+firstly class "linebar-before", then <p> or <h1>,
+at the end put class "linebar-after". 
+=> <div class="col-12 linebar"><div class="linebar-before"></div><p>Text</p><div class="linebar-after"></div></div */ 
+
+.linebar-before{
+    content: '';
+    border-top: 1px solid #ffffff;
+    margin: 0 6px 0 0;
+    flex: 1 0 6px;
+    display: block;
+}
+
+.linebar-after{
+    content: '';
+    border-top: 1px solid #ffffff;
+    margin: 0 6px 0 0;
+    flex: 1 0 6px;
+    display: block;
+}
+
+.linebar{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+    max-width: 980px;
+}
+
 
 
 /* FONTS */
@@ -272,6 +345,20 @@ table {
     margin-bottom: 25px;
     font-size: 18px;
     color: #eed500;
+}
+
+/* put the class into the col-12 container - then the specific fonts will be of different color in the form */
+
+.form-headlines{
+    color: #222222;
+}
+
+.form-headlines h1{
+    color: #222222;
+}
+
+.form-headlines p{
+    color: #222222;
 }
 
 

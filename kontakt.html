@@ -20,26 +20,41 @@
     <header id="header">
     </header>
 
-    <!-- top image display || PUT INTO HEADER? -->
-    <div class="full-scale">
-        <!-- the image inclusive the bottom yellow border -->
-        <div class="index-image-display" id="image-display-yellow-transition"></div>
-        <!-- the little arrow, below the yellow border -->
-        <div class="col-12"><img src="./images/arrow-25to15.png" alt="yellow arrow" /></div>
-    </div>
+    <!-- index Display gets loaded as react component in ./transformed/ImageDisplay/imageDisplayContact.js -->
+    <div id="contactImageDisplay"></div>
 
     <!-- main content section -->
     <div class="wrapper">
 
-        <h1>Fragen, W&uuml;nsche oder Anregungen?</h1>
-        <h2>Treten Sie mit uns in Kontakt!</h2>
+        <!-- Top section before the actual form -->
+        <div class="col-12">
+            <h1>Fragen, W&uuml;nsche oder Anregungen?</h1>
+            <h2>Treten Sie mit uns in Kontakt!</h2>
+            <p>
+                Aus welchen Gr&uuml;nden Sie sich auch immer an uns wenden m&ouml;chten, wir bem&uuml;hen uns Ihre Anfragen schnellstm&ouml;glich zu bearbeiten.
+                Wenn Sie Produkte gerne bei uns im Direktverkauf erwerben m&ouml;chten, ist ein vorheriger Anruf nat&uuml;rlich sehr praktisch um sicher zu gehen,
+                dass wir auch da sind. Wenn Sie sich gerne etwas per Post zuschicken lassen wollen, schreiben Sie uns doch einfach eine kurze eMail oder nutzen
+                unser Kontaktformular.<br /><br />
+                Sie erreichen uns schriftlich, telefonisch oder per E-Mail.<br />
+            </p>
+        </div>
 
         <div class="col-12" id="kontakt-top-border"></div>
-        <div class="col-12 background-yellow">
-            <!-- content eg divs have to have "margin-zero" class if they are close to the top or bottom yellow border. Otherwise Gap -->
-            <h1 class="margin-zero">Inner Content I</h1>
-            <h2 class="margin-zero">Inner Content II</h2>
-        </div>
+            <div class="col-12 background-yellow form-headlines">
+                <!-- content eg divs have to have "margin-zero" class if they are close to the top or bottom yellow border. Otherwise Gap -->
+                <!-- the col-3 serve as spacers to the side -->
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <h1 class="margin-zero">Kontaktdaten</h1>
+                </div>
+                <div class="col-3"></div>
+                <div class="col-12 linebar">
+                    <div class="linebar-before"></div>
+                        <p>Name</p>
+                    <div class="linebar-after"></div>
+                </div>
+            <!-- col-12 end -->    
+            </div>
         <div class="col-12" id="kontakt-bottom-border"></div>
         <!-- wrapper end -->
     </div>
@@ -55,6 +70,7 @@
     <!-- Load React components. -->
     <script src="./transformed/footer.js"></script>
     <script src="./transformed/header.js"></script>
+    <script src="./transformed//ImageDisplay/imageDisplayContact.js"></script>
 
 </body>
 
