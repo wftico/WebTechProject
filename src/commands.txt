@@ -2,5 +2,7 @@
 Sorft dafür, dass Skripte im "src" Ordner via Babel kompiliert werden und im "out-dir ." Ordner abgelegt werden. Hier z. B. "./transformed".
 **
 
+cd C:\Users\MNowa\Documents\Studium HTW\Projektarbeiten\Webtechnologien\WebpageProject\WebTechProject
+
 npx babel --watch src --out-dir ./transformed --presets react-app/prod
 

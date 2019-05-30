@@ -219,6 +219,69 @@ at the end put class "linebar-after".
     max-width: 980px;
 }
 
+/* FORMS */
+
+fieldset{
+    border-left-width: 0;
+    border-bottom-width: 0;
+    border-right-width: 0;
+    border-color: #ffffff;
+    border-style: solid;
+    border-top-width: 1px;
+    padding-bottom: 20px;
+}
+
+.textarea-sizeForce{
+    max-width: 460px;
+    min-width: 200px;
+    max-height: 500px;
+    min-height: 100px;
+}
+
+.form-input{
+  width: 80%;
+  height: 30px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: 'Varela Round', sans-serif;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+
+.form-button{
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+        touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+
+/* puts the content of the yellow-sloped box a little down */
+.yBox-spacerTop{
+    padding-top: 30px;
+}
 
 
 /* FONTS */
@@ -360,6 +423,24 @@ table {
 .form-headlines p{
     color: #222222;
 }
+
+    /* Form Fonts */
+
+legend{
+    font-size: 1.45em;
+    font-family: 'Varela Round', sans-serif;
+    color: #222222;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+label{
+    font-size: 16px;
+    font-family: 'Varela Round', sans-serif;
+    color: #222222;
+    line-height: 1.5;
+}
+
 
 
 /* Float clears */

@@ -11,7 +11,7 @@
 
     <link rel="icon" href="./images/hauptstadtbiene-icon.png" type="image/x-icon" />
     <!-- insert fitting link -->
-
+    
     <title>Hobby-Imkerei L&uuml;ck</title>
 </head>
 
@@ -39,15 +39,52 @@
             </p>
         </div>
 
+        <!-- Form Section -->
         <div class="col-12" id="kontakt-top-border"></div>
-            <div class="col-12 background-yellow form-headlines">
+            <div class="col-12 background-yellow form-headlines yBox-spacerTop">
                 <!-- content eg divs have to have "margin-zero" class if they are close to the top or bottom yellow border. Otherwise Gap -->
                 <!-- the col-3 serve as spacers to the side -->
-                <div class="col-3"></div>
-                <div class="col-6">
-                    <h1 class="margin-zero">Kontaktdaten</h1>
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <!-- start of the form -->
+                    <form method="post" class="form-horizontal">
+                        <fieldset>
+                            <legend>Ihre Kontaktdaten</legend>
+                
+                            <label>Name:</br> <input name="name" type="text" class="form-input" size="50" /></label>
+                            <!-- error name -->
+                            <br />
+                            <p>@Html.ValidationMessage("name")</p>
+                            <br />
+                            <label>E-Mail Adresse:</br> <input name="mail" type="email" class="form-input" size="50" /></label>
+                            <!-- error adress -->
+                            <br />
+                            <p>@Html.ValidationMessage("mail")</p>
+                            <br />
+                
+                        </fieldset>
+                        <fieldset>
+                            <legend>Nachricht</legend>
+                
+                            <label>Betreff:</br> <input name="topic" type="text" class="form-input" size="50" /></label>
+                            <!-- error betreff-->
+                            <br />
+                            <p>@Html.ValidationMessage(topic")</p>
+                            <br />
+                            <label>Nachricht:</br> <textarea name="message" class="textarea-sizeForce form-input" cols="90" rows="10"></textarea></label>
+                            <!-- error message -->
+                            <br />
+                            <p>@Html.ValidationMessage("message")</p>
+                            <br />
+                
+                        </fieldset>
+                        <p>
+                            <input type="submit" name="submit" value="Absenden" class="form-button" id="formClicked">
+                        </p>
+                    </form>
+                <!-- div col-6 end -->
                 </div>
-                <div class="col-3"></div>
+                <div class="col-2"></div>
                 <div class="col-12 linebar">
                     <div class="linebar-before"></div>
                         <p>Name</p>
@@ -58,6 +95,7 @@
         <div class="col-12" id="kontakt-bottom-border"></div>
         <!-- wrapper end -->
     </div>
+    <!-- Form Section end -->
 
     <footer id="footer">
     </footer>
