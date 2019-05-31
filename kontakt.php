@@ -39,6 +39,58 @@
             </p>
         </div>
 
+        <!-- Form PHP Script -->
+        <?php
+        // define variables and set to empty values
+        $nameErr = $emailErr = $topicErr = $msgErr = "";
+        $name = $email = $topic = $msg = "";
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (empty($_POST["name"])) {
+            $nameErr = "Sie müssen einen Namen eingeben.";
+        } else {
+            $name = test_input($_POST["name"]);
+            // check if name only contains letters and whitespace
+            if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+            $nameErr = "Es sind nur Leerzeichen und Buchstaben erlaubt."; 
+            }
+        }
+        
+        if (empty($_POST["email"])) {
+            $emailErr = "Sie müssen eine E-Mail angeben.";
+        } else {
+            $email = test_input($_POST["email"]);
+            // check if e-mail address is well-formed
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $emailErr = "Ihre E-Mail hat ein falsches Format."; 
+            }
+        }
+            
+        if (empty($_POST["topic"])) {
+            $topicErr = "Sie müssen einen Betreff eingeben.";
+        } else {
+            $topic = test_input($_POST["topic"]);
+            // check if name only contains letters and whitespace
+            if (!preg_match("/^[a-zA-Z ]*$/",$topic)) {
+            $topicErr = "Es sind nur Leerzeichen und Buchstaben erlaubt."; 
+            }
+        }
+
+        if (empty($_POST["message"])) {
+            $msg = "";
+        } else {
+            $msg = test_input($_POST["message"]);
+        }
+        }
+
+        function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+        }
+        ?>
+
         <!-- Form Section -->
         <div class="col-12" id="kontakt-top-border"></div>
             <div class="col-12 background-yellow form-headlines yBox-spacerTop">
@@ -51,30 +103,30 @@
                         <fieldset>
                             <legend>Ihre Kontaktdaten</legend>
                 
-                            <label>Name:</br> <input name="name" type="text" class="form-input" size="50" /></label>
+                            <label>Name:<br> <input name="name" type="text" class="form-input" size="50" /></label>
                             <!-- error name -->
                             <br />
-                            <p>@Html.ValidationMessage("name")</p>
+                            <span class="form-error">* <?php echo $nameErr;?></span>
                             <br />
-                            <label>E-Mail Adresse:</br> <input name="mail" type="email" class="form-input" size="50" /></label>
+                            <label>E-Mail Adresse:<br> <input name="mail" type="email" class="form-input" size="50" /></label>
                             <!-- error adress -->
                             <br />
-                            <p>@Html.ValidationMessage("mail")</p>
+                            <span class="form-error">* <?php echo $emailErr;?></span>
                             <br />
                 
                         </fieldset>
                         <fieldset>
                             <legend>Nachricht</legend>
                 
-                            <label>Betreff:</br> <input name="topic" type="text" class="form-input" size="50" /></label>
+                            <label>Betreff:<br> <input name="topic" type="text" class="form-input" size="50" /></label>
                             <!-- error betreff-->
                             <br />
-                            <p>@Html.ValidationMessage(topic")</p>
+                            <span class="form-error">* <?php echo $topicErr;?></span>
                             <br />
-                            <label>Nachricht:</br> <textarea name="message" class="textarea-sizeForce form-input" cols="90" rows="10"></textarea></label>
+                            <label>Nachricht:<br> <textarea name="message" class="textarea-sizeForce form-input" cols="90" rows="10"></textarea></label>
                             <!-- error message -->
                             <br />
-                            <p>@Html.ValidationMessage("message")</p>
+                            <span class="form-error">* <?php echo $msgErr;?></span>
                             <br />
                 
                         </fieldset>
