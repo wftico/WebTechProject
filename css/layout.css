@@ -186,6 +186,57 @@ body {
     text-align: center;
 }
 
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+    /* Sortiment-item divs */
+
+.sortiment-item{
+    width: 30%;
+    min-width: 250px;
+    display: block;
+    margin: 10px;
+    background-color: #2e2e2e;
+    border-radius: 4px;
+}
+
+.sortiment-item:hover{
+    background-color: #3a3a3a;
+}
+
+.test-dummy{
+    
+}
+
+#test{
+    display: block;
+}
+
+.sortiment-spacer-line{
+    border-bottom: 1px solid #eed500;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+    /* Sortiment Images */
+
+.sortiment-Image{
+    display: block;
+    max-width: 80%;
+    min-width: 30%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* linebar - looks like: ------ TEXT ------
 Put a div with class "col-12" and "linebar", inside of it, 
 firstly class "linebar-before", then <p> or <h1>,
@@ -420,6 +471,44 @@ table {
     color: #eed500;
 }
 
+.label-sortiment{
+    font-size: 1.45em;
+    font-family: 'Varela Round', sans-serif;
+    /* honey color */
+    color: #eed500;
+    font-weight: 400;
+}
+
+/* Sortiment-item fonts */
+
+.sortiment-item h1{
+    font-size: 1.15em;
+    font-family: 'Varela Round', sans-serif;
+    color: white;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.sortiment-item h2{
+    font-size: 1.15em;
+    font-family: 'Varela Round', sans-serif;
+    /* honey color */
+    color: #eed500;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+.sortiment-item p{
+    font-size: 1.10em;
+    font-family: 'Varela Round', sans-serif;
+    /* honey color */
+    color: white;
+    font-weight: 400;
+    text-align: center;
+}
+
 /* put the class into the col-12 container - then the specific fonts will be of different color in the form */
 
 .form-headlines{
@@ -449,6 +538,14 @@ label{
     font-family: 'Varela Round', sans-serif;
     color: #222222;
     line-height: 1.5;
+}
+
+/* sortiment-item font */
+.sortiment-item h1{
+    display: block;
+    text-align: center;
+    color: white;
+    font-size:28px;
 }
 
 

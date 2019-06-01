@@ -99,7 +99,7 @@
                 <div class="col-2"></div>
                 <div class="col-8">
                     <!-- start of the form -->
-                    <form method="post" class="form-horizontal">
+                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="form-horizontal">
                         <fieldset>
                             <legend>Ihre Kontaktdaten</legend>
                 
@@ -136,6 +136,13 @@
                     </form>
                 <!-- div col-6 end -->
                 </div>
+
+                <!-- TEST MAIL -->
+                <?php
+                // send email
+                mail("wfsona@yahoo.de",$topic,$msg);
+                ?>
+
                 <div class="col-2"></div>
                 <div class="col-12 linebar">
                     <div class="linebar-before"></div>

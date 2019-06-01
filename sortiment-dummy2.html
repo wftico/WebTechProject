@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="./css/layout.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="./images/hauptstadtbiene-icon.png" type="image/x-icon" />
+    <!-- insert fitting link -->
+
+    <title>Hobby-Imkerei L&uuml;ck</title>
+</head>
+
+<body>
+
+    <!-- header gets loaded as react component in ./transformed/header.js -->
+    <header id="header">
+    </header>
+
+    <!-- index Display gets loaded as react component in ./transformed/ImageDisplay/imageDisplayIndex.js -->
+    <div id="indexImageDisplay"></div>
+
+
+    <!-- main content section -->
+    <div class="wrapper">
+        <div class="col-12">
+            <h1>Unser Sortiment</h1>
+            <!-- Beginn der Sortiment Sektion -->
+            <fieldset>
+                <legend class="label-sortiment">Naturbelassener Honig</legend>
+                <div class="col-12">
+                        <!-- Flexcontainer für die Sortiment-Items (wrapped nach unten - 3 in row) -->
+                        <div class="flex-container">
+                            <!-- Beginn eines Items -->
+                            <div class="sortiment-item">
+                                <h1>Sommertracht</h1>
+                                <img src="./images/sortiment/Sommertracht2017.jpg" alt="Sommertracht" class="sortiment-Image">
+                                <h2>Preis</h2>
+                                <div class="sortiment-spacer-line"></div>
+                                <p>5.00 €</p>
+                                <h2>Merkmale</h2>
+                                <div class="sortiment-spacer-line"></div>
+                                <p>Mild, cremig und herzhaft</p>
+                                <h2>Geschmack</h2>
+                                <div class="sortiment-spacer-line"></div>
+                                <p>Mild</p>
+                            </div>
+                            <!-- Ende eines Items -->
+                            <!-- Beginn eines Items -->
+                            <div class="sortiment-item">
+                                <h1>Fr&uuml;htracht</h1>
+                                <img src="./images/sortiment/Fruehtracht.jpg" alt="Fr&uuml;tracht" class="sortiment-Image">
+                                <h2>Preis</h2>
+                                <div class="sortiment-spacer-line"></div>
+                                <p>6.00 €</p>
+                                <h2>Merkmale</h2>
+                                <div class="sortiment-spacer-line"></div>
+                                <p>Mild, cremig und herzhaft</p>
+                                <h2>Geschmack</h2>
+                                <div class="sortiment-spacer-line"></div>
+                                <p>Mild</p>
+                            </div>
+                            <!-- Ende eines Items -->
+                            <!-- Beginn eines Items -->
+                            <div class="sortiment-item">
+                                <h1>Bl&uuml;tenhonig</h1>
+                                <img src="./images/sortiment/FruehjahrBluetenhonig2017.jpg" alt="Bl&uuml;tenhonig" class="sortiment-Image">
+                                <h2>Preis</h2>
+                                <div class="sortiment-spacer-line"></div>
+                                <p>5.99 €</p>
+                                <h2>Merkmale</h2>
+                                <div class="sortiment-spacer-line"></div>
+                                <p>Mild, cremig und herzhaft</p>
+                                <h2>Geschmack</h2>
+                                <div class="sortiment-spacer-line"></div>
+                                <p>Mild</p>
+                            </div>
+                            <!-- Ende eines Items -->
+                            <!-- Beginn eines Items -->
+                            <div class="sortiment-item">
+                                <h1>Heidehonig</h1>
+                                <img src="./images/sortiment/Heidehonig2017.jpg" alt="Heidehonig" class="sortiment-Image">
+                                <h2>Preis</h2>
+                                <div class="sortiment-spacer-line"></div>
+                                <p>5.99 €</p>
+                                <h2>Merkmale</h2>
+                                <div class="sortiment-spacer-line"></div>
+                                <p>Mild, cremig und herzhaft</p>
+                                <h2>Geschmack</h2>
+                                <div class="sortiment-spacer-line"></div>
+                                <p>Mild</p>
+                            </div>
+                            <!-- Ende eines Items -->
+                            <!-- Beginn eines Items -->
+                            <div class="sortiment-item">
+                                <h1>Kornblume</h1>
+                                <img src="./images/sortiment/Kornblume.jpg" alt="Kornblume" class="sortiment-Image">
+                                <h2>Preis</h2>
+                                <div class="sortiment-spacer-line"></div>
+                                <p>5.99 €</p>
+                                <h2>Merkmale</h2>
+                                <div class="sortiment-spacer-line"></div>
+                                <p>Mild, cremig und herzhaft</p>
+                                <h2>Geschmack</h2>
+                                <div class="sortiment-spacer-line"></div>
+                                <p>Mild</p>
+                            </div>
+                            <!-- Ende eines Items -->
+                            <!-- Beginn eines Items -->
+                            <div class="sortiment-item" id="himbeerhonig">
+                                <h1>Himbeerhonig</h1>
+                                <img src="./images/sortiment/Himbeerhonig2017.jpg" alt="Himbeerhonig" class="sortiment-Image">
+                                <h2>Preis</h2>
+                                <div class="sortiment-spacer-line"></div>
+                                <p>5.99 €</p>
+                                <h2>Merkmale</h2>
+                                <div class="sortiment-spacer-line"></div>
+                                <p>Mild, cremig und herzhaft</p>
+                                <h2>Geschmack</h2>
+                                <div class="sortiment-spacer-line"></div>
+                                <p>Mild</p>
+                            </div>
+                            <!-- Ende eines Items -->
+                            <!-- Beginn eines Items -->
+                            <div class="sortiment-item" id="test">
+                                <h1>Lindenhonig</h1>
+                                <img src="./images/sortiment/Lindenhonig2017.jpg" alt="Lindenhonig" class="sortiment-Image">
+                                <h2>Preis</h2>
+                                <div class="sortiment-spacer-line"></div>
+                                <p>7.00 €</p>
+                                <h2>Merkmale</h2>
+                                <div class="sortiment-spacer-line"></div>
+                                <p>Mild, cremig und herzhaft</p>
+                                <h2>Geschmack</h2>
+                                <div class="sortiment-spacer-line"></div>
+                                <p>Mild</p>
+                            </div>
+                            <!-- Ende eines Items -->
+                        <!-- flex con end -->
+                        </div>
+                </div>
+            </fieldset>
+        </div>
+    <!-- wrapper end -->
+    </div>
+
+
+    <!-- footer gets loaded as a react component stored at ./transformed/footer.js -->
+    <footer id="footer">
+    </footer>
+
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="./js/react/react.production-min.js"></script>
+    <script src="./js/react-dom/react-dom.production-min.js"></script>
+
+    <!-- Load React components. -->
+    <script src="./transformed/footer.js"></script>
+    <script src="./transformed/header.js"></script>
+    <script src="./transformed/ImageDisplay/imageDisplayIndex.js"></script>
+
+</body>
+
+</html>
