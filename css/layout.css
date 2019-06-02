@@ -106,6 +106,13 @@ body {
     max-width: 100%;
 }
 
+.sortiment-image-display {
+    background-image: url("../images/honig-sortiment-imerei-lueck-o.jpg");
+    background-size: cover;
+    height: 420px;
+    max-width: 100%;
+}
+
 .footer-image-display-test {
     background-image: url("../images/hobby-imkerei-lueck-hauptstadtbiene.jpg");
     background-size: contain;

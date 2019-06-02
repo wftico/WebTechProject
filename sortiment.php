@@ -12,8 +12,6 @@
     <link rel="icon" href="./images/hauptstadtbiene-icon.png" type="image/x-icon" />
     <!-- insert fitting link -->
 
-    <script src="./scripts/admin-sortiment.js" type="text/javascript"></script>
-
     <title>Hobby-Imkerei L&uuml;ck</title>
 </head>
 
@@ -24,7 +22,7 @@
     </header>
 
     <!-- index Display gets loaded as react component in ./transformed/ImageDisplay/imageDisplayIndex.js -->
-    <div id="indexImageDisplay"></div>
+    <div id="sortimentImageDisplay"></div>
 
 
     <!-- main content section -->
@@ -40,10 +38,9 @@
                             <!-- Start of the Sortiment-Item generator Script -->
                             <!-- set up connection to the epizy DB -->
                             <?php
-                                $servername = "sql200.epizy.com";
-                                $username = "epiz_23972820";
-                                $password = "z7o5k1wxW";
-                                $dbname = "epiz_23972820_basedb";
+                                
+                                // Load DB credentials from save location
+                                include './secure/db_credentials.php';
 
                                 // Create connection
                                 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -70,7 +67,7 @@
                                                     <h2>Geschmack</h2>
                                                     <div class="sortiment-spacer-line"></div>
                                                     <p>'.$row["geschmack"].'</p>
-                                                </div>
+                                            </div>
                                             '
                                             ;
                                         }
@@ -103,7 +100,7 @@
     <!-- Load React components. -->
     <script src="./transformed/footer.js"></script>
     <script src="./transformed/header.js"></script>
-    <script src="./transformed/ImageDisplay/imageDisplayIndex.js"></script>
+    <script src="./transformed/ImageDisplay/imageDisplaySortiment.js"></script>
 
 </body>
 
