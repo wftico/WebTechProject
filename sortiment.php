@@ -12,6 +12,8 @@
     <link rel="icon" href="./images/hauptstadtbiene-icon.png" type="image/x-icon" />
     <!-- insert fitting link -->
 
+    <script src="./scripts/admin-sortiment.js" type="text/javascript"></script>
+
     <title>Hobby-Imkerei L&uuml;ck</title>
 </head>
 
@@ -28,17 +30,63 @@
     <!-- main content section -->
     <div class="wrapper">
         <div class="col-12">
-            <h1>Hobby-Imkerei in Berlin-L&uuml;bars</h1>
-            <h2>Herzlich willkommen auf unserer Website ...</h2>
-            <p>auf welcher wir Ihnen gerne unsere Imkerei N&auml;herbringen m&ouml;chten. Sie finden hier Ank&uuml;ndigungen rund um unsere Imkerei, falls wir z. B. wieder einmal auf einem Markt anzutreffen sind und unseren naturbelassenen Honig anbieten.
-                Hierf&uuml;r empfehlen wir Ihnen aber auch, uns bei Twitter zu folgen. So werden sie stets informiert, wann und wo wir anzutreffen sind.
-                <br /><br /> Sie erfahren hier mehr &uuml;ber uns, was uns zur Imkerei gebracht hat und was uns beim Imkern wichtig ist. Und wenn es etwas gibt, was Sie interessiert aber hier nicht finden, k&ouml;nnen Sie uns gerne eine Nachricht schreiben.
-                <br /><br /> Der Verkauf unseres Honigs findet unter anderem im Direktverkauf an unserer Haust&uuml;r in Berlin-L&uuml;bars statt. Die flei&szlig;igen Bienen fliegen meist im Tegeler Forst, Fließtal, und in L&uuml;bars sowie Heiligensee.
-                St&ouml;bern Sie ganz bequem in unserem Sortiment und &uuml;berzeugen Sie sich selbst von unserem Honig.
-                <br /><br /> Viel Spaß!
-            </p>
-        </div>
+            <h1>Unser Sortiment</h1>
+            <!-- Beginn der Sortiment Sektion -->
+            <fieldset>
+                <legend class="label-sortiment">Naturbelassener Honig</legend>
+                <div class="col-12">
+                        <!-- Flexcontainer für die Sortiment-Items (wrapped nach unten - 3 in row) -->
+                        <div class="flex-container">
+                            <!-- Start of the Sortiment-Item generator Script -->
+                            <!-- set up connection to the epizy DB -->
+                            <?php
+                                $servername = "sql200.epizy.com";
+                                $username = "epiz_23972820";
+                                $password = "z7o5k1wxW";
+                                $dbname = "epiz_23972820_basedb";
 
+                                // Create connection
+                                $conn = new mysqli($servername, $username, $password, $dbname);
+
+                                $sql = "SELECT * FROM honigsortiment";
+                                $result = $conn->query($sql);
+
+                                if ($result->num_rows > 0) {
+                                    // output data of each row
+                                    while($row = $result->fetch_assoc()) {
+                                        // only when the attribute 'display' is true, the html markup will be generated
+                                        if($row["display"] == "true"){
+                                            echo 
+                                            '
+                                            <div class="sortiment-item" id="'.$row["idcss"].'">
+                                                    <h1>'.$row["name"].'</h1>
+                                                    <img src="'.$row["imageurl"].'" alt="'.$row["name"].'" class="sortiment-Image">
+                                                    <h2>Preis</h2>
+                                                    <div class="sortiment-spacer-line"></div>
+                                                    <p>'.$row["preis"].' €</p>
+                                                    <h2>Merkmale</h2>
+                                                    <div class="sortiment-spacer-line"></div>
+                                                    <p>'.$row["merkmal"].'</p>
+                                                    <h2>Geschmack</h2>
+                                                    <div class="sortiment-spacer-line"></div>
+                                                    <p>'.$row["geschmack"].'</p>
+                                                </div>
+                                            '
+                                            ;
+                                        }
+                                    }
+                                } else {
+                                    echo "0 results";
+                                }
+                                $conn->close();
+                            // end php skript
+                            ?>
+                        <!-- flex con end -->
+                        </div>
+                </div>
+            </fieldset>
+        </div>
+    <!-- wrapper end -->
     </div>
 
 

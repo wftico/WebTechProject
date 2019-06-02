@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
 
     <link rel="icon" href="./images/hauptstadtbiene-icon.png" type="image/x-icon" />
+
+    <script src="./scripts/admin-sortiment.js" type="text/javascript"></script>
     <!-- insert fitting link -->
 
     <title>Hobby-Imkerei L&uuml;ck</title>
@@ -32,7 +34,7 @@
             <h2>Manage das Sortiment</h2>
             <p>Entsprechende Honigsorten können hinzugefügt oder aber auch gelöscht werden.
             </p>
-            <button onclick="myFunction()">Entferne Himbeerhonig</button>
+            <button onclick="myFunction()">Entferne Himbeerhonig (Toggle)</button>
         </div>
 
         <!-- REACT TEST -->

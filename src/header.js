@@ -13,8 +13,8 @@ class Header extends React.Component {
 				<div className="col-12">
 					<ul>
 						<li id="hauptstadtbiene"><a className="a-logo" href="./index.html">Hauptstadtbiene</a></li>
-						<li><a className="a-menu" href="./sortiment.html">Honigsortiment</a></li>
-						<li><a className="a-menu" href="./kontakt.html">Kontakt</a></li>
+						<li><a className="a-menu" href="./sortiment.php">Honigsortiment</a></li>
+						<li><a className="a-menu" href="./kontakt.php">Kontakt</a></li>
 						<li><a className="a-menu" href="./anfahrt.html">Anfahrt</a></li>
 						<li><a className="a-menu" href="./impressum.html">Impressum</a></li>
 					</ul>

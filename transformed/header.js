@@ -43,7 +43,7 @@ var Header = function (_React$Component) {
 																												null,
 																												React.createElement(
 																																"a",
-																																{ className: "a-menu", href: "./sortiment.html" },
+																																{ className: "a-menu", href: "./sortiment.php" },
 																																"Honigsortiment"
 																												)
 																								),
@@ -52,7 +52,7 @@ var Header = function (_React$Component) {
 																												null,
 																												React.createElement(
 																																"a",
-																																{ className: "a-menu", href: "./kontakt.html" },
+																																{ className: "a-menu", href: "./kontakt.php" },
 																																"Kontakt"
 																												)
 																								),
