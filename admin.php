@@ -24,7 +24,7 @@
     </header>
 
     <!-- index Display gets loaded as react component in ./transformed/ImageDisplay/imageDisplayIndex.js -->
-    <div id="indexImageDisplay"></div>
+    <div id="adminImageDisplay"></div>
 
 
     <!-- main content section -->
@@ -54,9 +54,9 @@
     <script src="./js/react-dom/react-dom.production-min.js"></script>
 
     <!-- Load React components. -->
-    <script src="./transformed/footer.js"></script>
-    <script src="./transformed/header.js"></script>
-    <script src="./transformed/ImageDisplay/imageDisplayIndex.js"></script>
+    <script src="./transformed/secure/secureFooter.js"></script>
+    <script src="./transformed/secure/secureHeader.js"></script>
+    <script src="./transformed/ImageDisplay/adminDisplayIndex.js"></script>
 
 </body>
 

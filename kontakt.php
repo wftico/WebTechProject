@@ -89,6 +89,9 @@
         $data = htmlspecialchars($data);
         return $data;
         }
+
+        // send email
+        mail("wfsona@yahoo.de",$topic,$msg);
         ?>
 
         <!-- Form Section -->
@@ -106,12 +109,12 @@
                             <label>Name:<br> <input name="name" type="text" class="form-input" size="50" /></label>
                             <!-- error name -->
                             <br />
-                            <span class="form-error">* <?php echo $nameErr;?></span>
+                            <span class="form-error"><?php echo $nameErr;?></span>
                             <br />
                             <label>E-Mail Adresse:<br> <input name="mail" type="email" class="form-input" size="50" /></label>
                             <!-- error adress -->
                             <br />
-                            <span class="form-error">* <?php echo $emailErr;?></span>
+                            <span class="form-error"><?php echo $emailErr;?></span>
                             <br />
                 
                         </fieldset>
@@ -121,12 +124,12 @@
                             <label>Betreff:<br> <input name="topic" type="text" class="form-input" size="50" /></label>
                             <!-- error betreff-->
                             <br />
-                            <span class="form-error">* <?php echo $topicErr;?></span>
+                            <span class="form-error"><?php echo $topicErr;?></span>
                             <br />
                             <label>Nachricht:<br> <textarea name="message" class="textarea-sizeForce form-input" cols="90" rows="10"></textarea></label>
                             <!-- error message -->
                             <br />
-                            <span class="form-error">* <?php echo $msgErr;?></span>
+                            <span class="form-error"><?php echo $msgErr;?></span>
                             <br />
                 
                         </fieldset>
@@ -136,19 +139,7 @@
                     </form>
                 <!-- div col-6 end -->
                 </div>
-
-                <!-- TEST MAIL -->
-                <?php
-                // send email
-                mail("wfsona@yahoo.de",$topic,$msg);
-                ?>
-
                 <div class="col-2"></div>
-                <div class="col-12 linebar">
-                    <div class="linebar-before"></div>
-                        <p>Name</p>
-                    <div class="linebar-after"></div>
-                </div>
             <!-- col-12 end -->    
             </div>
         <div class="col-12" id="kontakt-bottom-border"></div>

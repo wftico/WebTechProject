@@ -12,11 +12,12 @@
     <link rel="icon" href="./images/hauptstadtbiene-icon.png" type="image/x-icon" />
     <!-- insert fitting link -->
 
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
+
     <title>Hobby-Imkerei L&uuml;ck</title>
 </head>
 
 <body>
-
     <!-- header gets loaded as react component in ./transformed/header.js -->
     <header id="header">
     </header>
@@ -30,8 +31,12 @@
         <div class="col-12">
             <h1>Unser Sortiment</h1>
             <!-- Beginn der Sortiment Sektion -->
-            <fieldset>
-                <legend class="label-sortiment">Naturbelassener Honig</legend>
+                <h2>Naturbelassener Honig</h2>
+                <p>
+                    Werfen Sie einen Blick auf unsere aktuell angebotenen Honigsorten. Unser Sortiment variiert von Zeit zu Zeit. Jeder angebotener Honig ist echter deutscher Honig.
+                     Sollten Sie Fragen zu dem Honig haben, <a href="./kontakt.php">schreiben</a> Sie uns einfach.<br/>
+                     Weitere Informationen finden Sie <a href="#infoBegin" id="#scrolltoInfo">hier</a>.
+                </p>
                 <div class="col-12">
                         <!-- Flexcontainer für die Sortiment-Items (wrapped nach unten - 3 in row) -->
                         <div class="flex-container">
@@ -80,8 +85,12 @@
                             ?>
                         <!-- flex con end -->
                         </div>
+                <!-- div col-12 end -->        
                 </div>
-            </fieldset>
+                <div class="col-12" id="infoBegin">
+                    <p>Test</p>
+                </div>
+
         </div>
     <!-- wrapper end -->
     </div>
