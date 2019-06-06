@@ -28,7 +28,7 @@
 
     <!-- main content section -->
     <div class="wrapper">
-        <div class="col-12">
+        <div class="col-12" id="topAnchor"> <!-- Place id="topAnchor" for page reload php button landing -->
             <h1>Admin Panel</h1>
             <!-- Beginn der Sortiment Sektion -->
                 <h2>Sortiment Kontrolle</h2>
@@ -74,8 +74,13 @@
                                         echo '
                                         <tr>
                                             <td>'.$row["name"].'</td>
-                                            <td>'.$available.'</td>
-                                            <td><button type="button" onclick="$.get(\'../secure/admin-sortcontrol.php?callfunc=1\'); return false;">press me to execute function</button></td>
+                                            <td id="'.$row["idcss"].'available">'.$available.'</td>
+                                            <td>
+                                                <form action="../secure/admin-sortcontrol.php#topAnchor" method="get">
+                                                <input name="buttonClicked" hidden value=\''.$row["idcss"].'\'>
+                                                <input type="submit" value="Change">
+                                                </form>
+                                            </td>
                                         </tr>
                                         ';
                                     }
@@ -89,21 +94,72 @@
                             // end php skript
                             ?>
 
+            <!-- Begin of PHP alter DB entries skript -->
+            <?php
+            if($_GET['buttonClicked']){
             
-
-            <script>
-            $(document).ready(function(){
-            $("button").click(function(){
-                $.get("test.php", function(data, status){
-                alert("Data: " + data + "\nStatus: " + status);
-                });
-            });
-            });
-            </script>
-            <button>Send an HTTP GET request to a page and get the result back</button>
+                // current issue: not sanitized, page refresh (F5) instantly triggers the IF GET
 
 
+                echo 'IT WORKED';
 
+                // should be sanitized !
+                $id = $_GET['buttonClicked'];
+
+                echo ''.$id.'';
+
+                // Start DB connection 
+                // Load DB credentials from save location
+                include '../secure/db_credentials.php';
+
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+
+                $sql = "SELECT * FROM honigsortiment";
+                $sqlDisplay ="UPDATE honigsortiment SET display='true' WHERE idcss='$id'";
+                $sqlDontDisplay ="UPDATE honigsortiment SET display='false' WHERE idcss='$id'";
+
+            
+                $result = $conn->query($sql); 
+                
+                while($row = $result->fetch_assoc()) {
+
+                    $dummy = $row["idcss"];
+
+                    echo ''.$dummy.'';
+
+                    // wenn die ID zum DB Eintrag passt
+                    if($dummy == $id){
+                        if($row["display"] == "true"){
+                            // dann auf nicht display setzen
+                            if (mysqli_query($conn, $sqlDontDisplay)) {
+                                echo '
+                                <script type="text/javascript">
+                                document.getElementById("'.$id.'available").innerHTML = "Nein";
+                                </script>
+                                ';
+                            } else {
+                                echo "Error updating record: " . mysqli_error($conn);
+                            }
+                        } else {
+                            // auf display setzen
+                            if (mysqli_query($conn, $sqlDisplay)) {
+                                echo '
+                                <script type="text/javascript">
+                                document.getElementById("'.$id.'available").innerHTML = "Ja";
+                                </script>
+                                ';
+                            } else {
+                                echo "Error updating record: " . mysqli_error($conn);
+                            }
+                        }
+                    } 
+
+                }
+
+                $conn->close();
+            }
+            ?>
 
         <!-- div col12 end -->
         </div>
