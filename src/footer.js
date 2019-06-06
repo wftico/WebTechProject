@@ -11,9 +11,10 @@ class Footer extends React.Component {
 			<div className="full-scale">
 				<div className="col-12" id="footer-top-border">
 					<ul>
-						<li>Kontakt</li>
-						<li>Anfahrt</li>
-						<li>Impressum</li>
+						<li><a className="a-menu" href="./kontakt.php">Kontakt</a></li>
+						<li><a className="a-menu" href="./anfahrt.html">Anfahrt</a></li>
+						<li><a className="a-menu" href="./impressum.html">Impressum</a></li>
+						<li><a className="a-menu" href="./secure/admin-sortcontrol.php">Admin</a></li>
 					</ul>
 				</div>
 				<div className="col-12">

@@ -9,31 +9,43 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var ImageDisplay = function (_React$Component) {
-		_inherits(ImageDisplay, _React$Component);
+	_inherits(ImageDisplay, _React$Component);
 
-		function ImageDisplay() {
-				_classCallCheck(this, ImageDisplay);
+	function ImageDisplay() {
+		_classCallCheck(this, ImageDisplay);
 
-				return _possibleConstructorReturn(this, (ImageDisplay.__proto__ || Object.getPrototypeOf(ImageDisplay)).apply(this, arguments));
+		return _possibleConstructorReturn(this, (ImageDisplay.__proto__ || Object.getPrototypeOf(ImageDisplay)).apply(this, arguments));
+	}
+
+	_createClass(ImageDisplay, [{
+		key: "render",
+		value: function render() {
+			return React.createElement(
+				"div",
+				{ className: "full-scale" },
+				React.createElement(
+					"div",
+					{ className: "index-image-display", id: "image-display-yellow-transition" },
+					React.createElement(
+						"div",
+						{ "class": "col-12" },
+						React.createElement(
+							"h1",
+							{ "class": "text-label-center" },
+							"\xBB Hauptstadtbiene"
+						)
+					)
+				),
+				React.createElement(
+					"div",
+					{ className: "col-12 yellow-arrow-padding-fix" },
+					React.createElement("img", { src: "./images/arrow-25to15.png", alt: "yellow arrow" })
+				)
+			);
 		}
+	}]);
 
-		_createClass(ImageDisplay, [{
-				key: "render",
-				value: function render() {
-						return React.createElement(
-								"div",
-								{ className: "full-scale" },
-								React.createElement("div", { className: "index-image-display", id: "image-display-yellow-transition" }),
-								React.createElement(
-										"div",
-										{ className: "col-12" },
-										React.createElement("img", { src: "./images/arrow-25to15.png", alt: "yellow arrow" })
-								)
-						);
-				}
-		}]);
-
-		return ImageDisplay;
+	return ImageDisplay;
 }(React.Component);
 
 var elementIndex = React.createElement(ImageDisplay, null);

@@ -406,6 +406,10 @@ ul {
     padding: 0;
 }
 
+.transparentBackground{
+    background-color: hsla(1, 100%, 0%, 0.3);
+}
+
 a {
     font-size: 1.0em;
     font-family: 'Varela Round', sans-serif;
@@ -414,7 +418,7 @@ a {
 }
 
 a:visited {
-    color: grey;
+    color: #fae311;
 }
 
 a:active {
@@ -460,13 +464,15 @@ a:hover {
     color: white;
 }
 
-.a-menu:active {
-    color: #eed500;
-}
-
 .a-menu:hover {
     color: #fbee81;
 }
+
+.a-menu:active {
+    color: #ffe605;
+}
+
+
 
 table {
     font-size: 18px;
@@ -610,6 +616,28 @@ label{
     clear: both;
 }
 
+.text-label-center{
+    margin-left: 40%;
+    width: 20%;
+    min-width: 250px;
+    padding: 10px;
+    position: absolute;
+    top: 25%;
+    -webkit-transform: translateY(-25%);
+    -ms-transform: translateY(-25%);
+    transform: translateY(-25%);
+    background-color: hsla(0, 0%, 15%, 0.4);
+    text-shadow: 1.25px 1.25px 1.25px #000000;
+    font-size: 2em;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 700;
+}
+
+/* FIXES */
+
+.yellow-arrow-padding-fix{
+    padding: 0 !important;
+}
 
 /* margin - paddings */
 

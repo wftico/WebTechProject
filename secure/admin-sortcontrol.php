@@ -75,7 +75,7 @@
                                         <tr>
                                             <td>'.$row["name"].'</td>
                                             <td>'.$available.'</td>
-                                            <td>'.$placeholder.'</td>
+                                            <td><button type="button" onclick="$.get(\'../secure/admin-sortcontrol.php?callfunc=1\'); return false;">press me to execute function</button></td>
                                         </tr>
                                         ';
                                     }
@@ -88,6 +88,21 @@
                                 $conn->close();
                             // end php skript
                             ?>
+
+            
+
+            <script>
+            $(document).ready(function(){
+            $("button").click(function(){
+                $.get("test.php", function(data, status){
+                alert("Data: " + data + "\nStatus: " + status);
+                });
+            });
+            });
+            </script>
+            <button>Send an HTTP GET request to a page and get the result back</button>
+
+
 
 
         <!-- div col12 end -->

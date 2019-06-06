@@ -28,7 +28,7 @@ var Header = function (_React$Component) {
 																				{ className: "col-12" },
 																				React.createElement(
 																								"ul",
-																								null,
+																								{ "class": "transparentBackground" },
 																								React.createElement(
 																												"li",
 																												{ id: "hauptstadtbiene" },

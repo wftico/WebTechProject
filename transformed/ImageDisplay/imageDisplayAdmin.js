@@ -9,31 +9,43 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var ImageDisplayAdmin = function (_React$Component) {
-		_inherits(ImageDisplayAdmin, _React$Component);
+	_inherits(ImageDisplayAdmin, _React$Component);
 
-		function ImageDisplayAdmin() {
-				_classCallCheck(this, ImageDisplayAdmin);
+	function ImageDisplayAdmin() {
+		_classCallCheck(this, ImageDisplayAdmin);
 
-				return _possibleConstructorReturn(this, (ImageDisplayAdmin.__proto__ || Object.getPrototypeOf(ImageDisplayAdmin)).apply(this, arguments));
+		return _possibleConstructorReturn(this, (ImageDisplayAdmin.__proto__ || Object.getPrototypeOf(ImageDisplayAdmin)).apply(this, arguments));
+	}
+
+	_createClass(ImageDisplayAdmin, [{
+		key: "render",
+		value: function render() {
+			return React.createElement(
+				"div",
+				{ className: "full-scale" },
+				React.createElement(
+					"div",
+					{ className: "admin-image-display", id: "image-display-yellow-transition" },
+					React.createElement(
+						"div",
+						{ "class": "col-12" },
+						React.createElement(
+							"h1",
+							{ "class": "text-label-center" },
+							"\xBB Admin"
+						)
+					)
+				),
+				React.createElement(
+					"div",
+					{ className: "col-12 yellow-arrow-padding-fix" },
+					React.createElement("img", { src: "../images/arrow-25to15.png", alt: "yellow arrow" })
+				)
+			);
 		}
+	}]);
 
-		_createClass(ImageDisplayAdmin, [{
-				key: "render",
-				value: function render() {
-						return React.createElement(
-								"div",
-								{ className: "full-scale" },
-								React.createElement("div", { className: "admin-image-display", id: "image-display-yellow-transition" }),
-								React.createElement(
-										"div",
-										{ className: "col-12" },
-										React.createElement("img", { src: "../images/arrow-25to15.png", alt: "yellow arrow" })
-								)
-						);
-				}
-		}]);
-
-		return ImageDisplayAdmin;
+	return ImageDisplayAdmin;
 }(React.Component);
 
 var elementAdmin = React.createElement(ImageDisplayAdmin, null);

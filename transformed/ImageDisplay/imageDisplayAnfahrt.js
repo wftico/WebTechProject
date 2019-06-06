@@ -9,31 +9,43 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var ImageDisplayAnfahrt = function (_React$Component) {
-		_inherits(ImageDisplayAnfahrt, _React$Component);
+	_inherits(ImageDisplayAnfahrt, _React$Component);
 
-		function ImageDisplayAnfahrt() {
-				_classCallCheck(this, ImageDisplayAnfahrt);
+	function ImageDisplayAnfahrt() {
+		_classCallCheck(this, ImageDisplayAnfahrt);
 
-				return _possibleConstructorReturn(this, (ImageDisplayAnfahrt.__proto__ || Object.getPrototypeOf(ImageDisplayAnfahrt)).apply(this, arguments));
+		return _possibleConstructorReturn(this, (ImageDisplayAnfahrt.__proto__ || Object.getPrototypeOf(ImageDisplayAnfahrt)).apply(this, arguments));
+	}
+
+	_createClass(ImageDisplayAnfahrt, [{
+		key: "render",
+		value: function render() {
+			return React.createElement(
+				"div",
+				{ className: "full-scale" },
+				React.createElement(
+					"div",
+					{ className: "anfahrt-image-display", id: "image-display-yellow-transition" },
+					React.createElement(
+						"div",
+						{ "class": "col-12" },
+						React.createElement(
+							"h1",
+							{ "class": "text-label-center" },
+							"\xBB Anfahrt"
+						)
+					)
+				),
+				React.createElement(
+					"div",
+					{ className: "col-12 yellow-arrow-padding-fix" },
+					React.createElement("img", { src: "./images/arrow-25to15.png", alt: "yellow arrow" })
+				)
+			);
 		}
+	}]);
 
-		_createClass(ImageDisplayAnfahrt, [{
-				key: "render",
-				value: function render() {
-						return React.createElement(
-								"div",
-								{ className: "full-scale" },
-								React.createElement("div", { className: "anfahrt-image-display", id: "image-display-yellow-transition" }),
-								React.createElement(
-										"div",
-										{ className: "col-12" },
-										React.createElement("img", { src: "./images/arrow-25to15.png", alt: "yellow arrow" })
-								)
-						);
-				}
-		}]);
-
-		return ImageDisplayAnfahrt;
+	return ImageDisplayAnfahrt;
 }(React.Component);
 
 var elementAnfahrt = React.createElement(ImageDisplayAnfahrt, null);

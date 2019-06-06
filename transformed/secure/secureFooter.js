@@ -32,17 +32,38 @@ var SecureFooter = function (_React$Component) {
 						React.createElement(
 							"li",
 							null,
-							"Kontakt"
+							React.createElement(
+								"a",
+								{ className: "a-menu", href: "../kontakt.php" },
+								"Kontakt"
+							)
 						),
 						React.createElement(
 							"li",
 							null,
-							"Anfahrt"
+							React.createElement(
+								"a",
+								{ className: "a-menu", href: "../anfahrt.html" },
+								"Anfahrt"
+							)
 						),
 						React.createElement(
 							"li",
 							null,
-							"Impressum"
+							React.createElement(
+								"a",
+								{ className: "a-menu", href: "../impressum.html" },
+								"Impressum"
+							)
+						),
+						React.createElement(
+							"li",
+							null,
+							React.createElement(
+								"a",
+								{ className: "a-menu", href: "../secure/admin-sortcontrol.php" },
+								"Admin"
+							)
 						)
 					)
 				),
