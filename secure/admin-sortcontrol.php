@@ -99,14 +99,10 @@
             if($_GET['buttonClicked']){
             
                 // current issue: not sanitized, page refresh (F5) instantly triggers the IF GET
-
-
-                echo 'IT WORKED';
+                // also the form doesn't resend, can't change the state twice after another on the same honey
 
                 // should be sanitized !
                 $id = $_GET['buttonClicked'];
-
-                echo ''.$id.'';
 
                 // Start DB connection 
                 // Load DB credentials from save location
@@ -126,8 +122,6 @@
 
                     $dummy = $row["idcss"];
 
-                    echo ''.$dummy.'';
-
                     // wenn die ID zum DB Eintrag passt
                     if($dummy == $id){
                         if($row["display"] == "true"){
@@ -135,7 +129,8 @@
                             if (mysqli_query($conn, $sqlDontDisplay)) {
                                 echo '
                                 <script type="text/javascript">
-                                document.getElementById("'.$id.'available").innerHTML = "Nein";
+                                var td = document.getElementById("'.$id.'available");
+                                td.innerHTML = "Nein";
                                 </script>
                                 ';
                             } else {
@@ -146,7 +141,8 @@
                             if (mysqli_query($conn, $sqlDisplay)) {
                                 echo '
                                 <script type="text/javascript">
-                                document.getElementById("'.$id.'available").innerHTML = "Ja";
+                                var td = document.getElementById("'.$id.'available");
+                                td.innerHTML = "Ja";
                                 </script>
                                 ';
                             } else {
@@ -156,10 +152,23 @@
                     } 
 
                 }
-
+                
                 $conn->close();
             }
             ?>
+
+            <!-- script fixes the issue, that a page reload actually performed the PHP script again (get) 
+            The Script removes the query string, except the #topAnchor part -->
+            <script type="text/javascript">
+            $(document).ready(function(){
+            var uri = window.location.toString();
+            if (uri.indexOf("?") > 0) {
+                var clean_uri = uri.substring(0, uri.indexOf("?")) + "#topAnchor";
+                window.history.replaceState({}, document.title, clean_uri);
+                }
+            });
+            </script>
+            
 
         <!-- div col12 end -->
         </div>
