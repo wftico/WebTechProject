@@ -37,139 +37,46 @@
                 </p>
         </div>
         <div class="col-12">
-        <?php
-                                
-                                // Load DB credentials from save location
-                                include '../secure/db_credentials.php';
 
-                                // Create connection
-                                $conn = new mysqli($servername, $username, $password, $dbname);
+            <!-- Fügt Script zum Erzeugen des Sortiment-Tables ein für die Verfügbarkeit -->
+            <?php include '../scripts/admin-loadSortTable.php'; ?>
 
-                                $sql = "SELECT * FROM honigsortiment";
-                                $result = $conn->query($sql);
-                                $placeholder = "change";
-                                $available = "";
-
-                                // create the table of the honey sortiment
-                                echo '<table id="honigsort-admin">
-                                <tr>
-                                <th>Honigsorte</th>
-                                <th>Verfügbar</th>
-                                <th>Verfübarkeit ändern</th>
-                                </tr>
-                                ';
-
-
-                                if ($result->num_rows > 0) {
-                                    
-                                    while($row = $result->fetch_assoc()) {
-
-                                        // check if the honey should display as available or not
-                                        if($row["display"] == "true"){
-                                            $available = "Ja";
-                                        } else {
-                                            $available = "Nein";
-                                        }
-
-                                        echo '
-                                        <tr>
-                                            <td>'.$row["name"].'</td>
-                                            <td id="'.$row["idcss"].'available">'.$available.'</td>
-                                            <td>
-                                                <form action="../secure/admin-sortcontrol.php#topAnchor" method="get">
-                                                <input name="buttonClicked" hidden value=\''.$row["idcss"].'\'>
-                                                <input type="submit" value="Change">
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        ';
-                                    }
-                                } else {
-                                    echo "0 results";
-                                }
-
-                                echo '</table>';
-
-                                $conn->close();
-                            // end php skript
-                            ?>
-
-            <!-- Begin of PHP alter DB entries skript -->
-            <?php
-            if($_GET['buttonClicked']){
+            <!-- Fügt script zum Bearbeiten des Verfügbarkeitsstatus ein -->
+            <?php include '../scripts/admin-setAvailability.php'; ?>
             
-                // current issue: not sanitized, page refresh (F5) instantly triggers the IF GET
-                // also the form doesn't resend, can't change the state twice after another on the same honey
+            <h2 id="topProperties">Sortiment Merkmale</h2>
+            <p>Passen Sie die Merkmale des Sortiments an.</p>
 
-                // should be sanitized !
-                $id = $_GET['buttonClicked'];
-
-                // Start DB connection 
-                // Load DB credentials from save location
-                include '../secure/db_credentials.php';
-
-                // Create connection
-                $conn = new mysqli($servername, $username, $password, $dbname);
-
-                $sql = "SELECT * FROM honigsortiment";
-                $sqlDisplay ="UPDATE honigsortiment SET display='true' WHERE idcss='$id'";
-                $sqlDontDisplay ="UPDATE honigsortiment SET display='false' WHERE idcss='$id'";
-
+             <!-- Fügt Script zum Erzeugen des Sortiment-Tables ein für die Merkmale -->
+             <?php include '../scripts/admin-loadSortTableProperties.php'; ?>
             
-                $result = $conn->query($sql); 
-                
-                while($row = $result->fetch_assoc()) {
-
-                    $dummy = $row["idcss"];
-
-                    // wenn die ID zum DB Eintrag passt
-                    if($dummy == $id){
-                        if($row["display"] == "true"){
-                            // dann auf nicht display setzen
-                            if (mysqli_query($conn, $sqlDontDisplay)) {
-                                echo '
-                                <script type="text/javascript">
-                                var td = document.getElementById("'.$id.'available");
-                                td.innerHTML = "Nein";
-                                </script>
-                                ';
-                            } else {
-                                echo "Error updating record: " . mysqli_error($conn);
-                            }
-                        } else {
-                            // auf display setzen
-                            if (mysqli_query($conn, $sqlDisplay)) {
-                                echo '
-                                <script type="text/javascript">
-                                var td = document.getElementById("'.$id.'available");
-                                td.innerHTML = "Ja";
-                                </script>
-                                ';
-                            } else {
-                                echo "Error updating record: " . mysqli_error($conn);
-                            }
-                        }
-                    } 
-
-                }
-                
-                $conn->close();
-            }
-            ?>
 
             <!-- script fixes the issue, that a page reload actually performed the PHP script again (get) 
             The Script removes the query string, except the #topAnchor part -->
+
+
             <script type="text/javascript">
-            $(document).ready(function(){
-            var uri = window.location.toString();
-            if (uri.indexOf("?") > 0) {
-                var clean_uri = uri.substring(0, uri.indexOf("?")) + "#topAnchor";
-                window.history.replaceState({}, document.title, clean_uri);
-                }
-            });
+                $(document).ready(function(){
+
+                    function cleanURIProperty(){
+                        var uri = window.location.toString();
+                        if (uri.indexOf("?") > 0) {
+                            var clean_uri = uri.substring(0, uri.indexOf("?")) + "#topProperties";
+                            window.history.replaceState({}, document.title, clean_uri);
+                        }
+                    }
+
+                    function clearURIAvailability(){
+                        var uri = window.location.toString();
+                        if (uri.indexOf("?") > 0) {
+                            var clean_uri = uri.substring(0, uri.indexOf("?")) + "#topAnchor";
+                            window.history.replaceState({}, document.title, clean_uri);
+                        }
+                    }
+
+                });
             </script>
             
-
         <!-- div col12 end -->
         </div>
     <!-- wrapper end -->
