@@ -66,7 +66,6 @@
                     </fieldset>
                 </form
             ';
-
         }
 
         // if the post has been sent - validate data and update it
