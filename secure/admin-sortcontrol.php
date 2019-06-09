@@ -38,7 +38,7 @@
         </div>
         <div class="col-12">
 
-            <!-- Fügt Script zum Erzeugen des Sortiment-Tables ein für die Verfügbarkeit -->
+            <!-- Fügt script zum Erzeugen des Sortiment-Tables ein für die Verfügbarkeit -->
             <?php include '../scripts/admin-loadSortTable.php'; ?>
 
             <!-- Fügt script zum Bearbeiten des Verfügbarkeitsstatus ein -->
@@ -47,8 +47,14 @@
             <h2 id="topProperties">Sortiment Merkmale</h2>
             <p>Passen Sie die Merkmale des Sortiments an.</p>
 
-             <!-- Fügt Script zum Erzeugen des Sortiment-Tables ein für die Merkmale -->
+             <!-- Fügt script zum Erzeugen des Sortiment-Tables ein für die Merkmale -->
              <?php include '../scripts/admin-loadSortTableProperties.php'; ?>
+
+            <h2 id="topTaste">Sortiment Geschmack</h2>
+            <p>Passen Sie die Geschmacksbeschreibung des Sortiments an.</p>
+
+            <!-- Fügt script zum Erzeugen des Sortiment-Tables ein für den Geschmack -->
+            <?php include '../scripts/admin-loadSortTableTaste.php'; ?>
             
 
             <!-- script fixes the issue, that a page reload actually performed the PHP script again (get) 
