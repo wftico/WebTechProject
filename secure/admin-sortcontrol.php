@@ -31,58 +31,76 @@
         <div class="col-12" id="topAnchor"> <!-- Place id="topAnchor" for page reload php button landing -->
             <h1>Admin Panel</h1>
             <!-- Beginn der Sortiment Sektion -->
-                <h2>Sortiment Kontrolle</h2>
-                <p>
-                    Passen Sie das Sortiment an.
-                </p>
         </div>
+
         <div class="col-12">
 
-            <!-- Fügt script zum Erzeugen des Sortiment-Tables ein für die Verfügbarkeit -->
-            <?php include '../scripts/admin-loadSortTable.php'; ?>
+            <!-- list to choose what you want to do - edit, update, delete or create -->
+            <div class="col-12" id="toggleAvailability">
+                <ul class="ul-admin">
+                    <li><a href="?req=Avail#topAnchor" class="a-menu" target="_self">Anpassen der<br>Verf&uuml;gbarkeit</a></li>
+                    <li><a href="?req=Prop#topAnchor" class="a-menu" target="_self">Merkmale<br>&auml;ndern</a></li>
+                    <li><a href="?req=Taste#topAnchor" class="a-menu" target="_self">Geschmack<br>&auml;ndern</a></li>
+                    <li><a href="?req=Del#topAnchor" class="a-menu" target="_self">Eintrag<br>entfernen</a></li>
+                    <li><a href="?req=Add#topAnchor" class="a-menu" target="_self">Eintrag<br>hinzufügen</a></li>
+                </ul>
+            </div>
 
-            <!-- Fügt script zum Bearbeiten des Verfügbarkeitsstatus ein -->
-            <?php include '../scripts/admin-setAvailability.php'; ?>
-            
-            <h2 id="topProperties">Sortiment Merkmale</h2>
-            <p>Passen Sie die Merkmale des Sortiments an.</p>
+            <!-- renders the content in regard to the menu button clicked -->
+            <?php
+                // validate data function
+                function test_input($data){
+                $data = trim($data);
+                $data = stripslashes($data);
+                $data = htmlspecialchars($data);
+                return $data;
+                }
 
-             <!-- Fügt script zum Erzeugen des Sortiment-Tables ein für die Merkmale -->
-             <?php include '../scripts/admin-loadSortTableProperties.php'; ?>
+                $givenRequest = test_input($_GET["req"]);
 
-            <h2 id="topTaste">Sortiment Geschmack</h2>
-            <p>Passen Sie die Geschmacksbeschreibung des Sortiments an.</p>
+                // change Availability
+                if($givenRequest == "Avail"){
 
-            <!-- Fügt script zum Erzeugen des Sortiment-Tables ein für den Geschmack -->
-            <?php include '../scripts/admin-loadSortTableTaste.php'; ?>
-            
+                    // Fügt script zum Erzeugen des Sortiment-Tables ein für die Verfügbarkeit
+                    include '../scripts/admin-loadSortTable.php';
+                    // Fügt script zum Bearbeiten des Verfügbarkeitsstatus ein -->
+                    include '../scripts/admin-setAvailability.php';
 
-            <!-- script fixes the issue, that a page reload actually performed the PHP script again (get) 
-            The Script removes the query string, except the #topAnchor part -->
+                    // the script prevents that the availability data gets changed again with the refresh of the page
+                    echo'
+                        <script type="text/javascript">
+                        $(document).ready(function(){
+                                var uri = window.location.toString();
+                                if (uri.indexOf("?") > 0) {
+                                    var clean_uri = uri.substring(0, uri.indexOf("?")) + "?req=Avail#topAnchor";
+                                    window.history.replaceState({}, document.title, clean_uri);
+                                }
+                        });
+                        </script>
+                    ';
 
+                } 
+                else if($givenRequest == "Prop"){
 
-            <script type="text/javascript">
-                $(document).ready(function(){
+                    echo'
+                        <h2 id="topProperties">Sortiment Merkmale</h2>
+                        <p>Passen Sie die Merkmale des Sortiments an.</p>
+                    ';
+                    // Fügt script zum Erzeugen des Sortiment-Tables ein für die Merkmale
+                    include '../scripts/admin-loadSortTableProperties.php';
 
-                    function cleanURIProperty(){
-                        var uri = window.location.toString();
-                        if (uri.indexOf("?") > 0) {
-                            var clean_uri = uri.substring(0, uri.indexOf("?")) + "#topProperties";
-                            window.history.replaceState({}, document.title, clean_uri);
-                        }
-                    }
+                } else if($givenRequest == "Taste"){
 
-                    function clearURIAvailability(){
-                        var uri = window.location.toString();
-                        if (uri.indexOf("?") > 0) {
-                            var clean_uri = uri.substring(0, uri.indexOf("?")) + "#topAnchor";
-                            window.history.replaceState({}, document.title, clean_uri);
-                        }
-                    }
+                    echo'
+                        <h2 id="topTaste">Sortiment Geschmack</h2>
+                        <p>Passen Sie die Geschmacksbeschreibung des Sortiments an.</p>
+                    ';
+                    // Fügt script zum Erzeugen des Sortiment-Tables ein für den Geschmack
+                    include '../scripts/admin-loadSortTableTaste.php';
 
-                });
-            </script>
-            
+                }
+            ?>
+
         <!-- div col12 end -->
         </div>
     <!-- wrapper end -->

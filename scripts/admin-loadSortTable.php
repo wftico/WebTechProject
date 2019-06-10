@@ -37,8 +37,9 @@
                                             <td id="'.$row["idcss"].'available">'.$available.'</td>
                                             <td>
                                                 <form action="../secure/admin-sortcontrol.php#topAnchor" method="get">
-                                                <input name="buttonClicked" hidden value=\''.$row["idcss"].'\' onclick="cleanURIAvailability()">
-                                                <input type="submit" value="Change" onclick="cleanURIAvailability()">
+                                                <input name="buttonClicked" hidden value=\''.$row["idcss"].'\'>
+                                                <input name="req" hidden value="Avail">
+                                                <input type="submit" value="Change">
                                                 </form>
                                             </td>
                                         </tr>

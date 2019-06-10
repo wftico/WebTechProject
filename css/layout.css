@@ -241,6 +241,15 @@ body {
     margin-bottom: 0;
 }
 
+.admin-toggle{
+    background-color: #eed500;
+    color: black;
+}
+
+#availabilityContent{
+    display: none;
+}
+
     /* Sortiment Images */
 
 .sortiment-Image{
@@ -567,6 +576,24 @@ label{
     text-align: center;
     color: white;
     font-size:22px;
+}
+
+/* Admin UL */
+.ul-admin{
+    text-align: center;
+    vertical-align: center;
+    align-content: center;
+    padding: 35px 0px;
+}
+
+.ul-admin li{
+    display: inline-block;
+    line-height: 1.5;
+    padding: 10 15px !important;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: yellow;
 }
 
 
