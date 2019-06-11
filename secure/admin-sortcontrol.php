@@ -99,9 +99,10 @@
                     include '../scripts/admin-loadSortTableTaste.php';
 
                 } else if($givenRequest == "Del"){
-
+                    // Fügt script zum Löschen des Sortiment-Tables ein 
+                    include '../scripts/admin-loadSortTableDelete.php';
                 } else if($givenRequest == "Add"){
-                    
+
                 }
             ?>
 

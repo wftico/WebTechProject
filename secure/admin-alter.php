@@ -48,6 +48,8 @@
             $id = test_input($_GET['buttonClickedProperties']);
         } else if($_GET['buttonClickedTaste']){
             $id = test_input($_GET['buttonClickedTaste']);
+        } else if($_GET['buttonClickedDelete']){
+            $id = test_input($_GET['buttonClickedDelete']);
         }
 
         // Start DB connection 
@@ -94,6 +96,19 @@
                     </fieldset>
                 </form>
             ';
+        } else if($_GET['buttonClickedDelete']){
+
+            echo'
+                <h1>Eintrag L&ouml;schen</h1>
+                <h2>M&ouml;chten Sie '.strtoupper($id).' wirklich L&ouml;schen?
+                <form method="post" action="../secure/admin-alter.php?buttonClickedDelete='.$id.'">
+                    <fieldset>
+                        <input type="submit" name="submit" value="Entg&uuml;ltig l&ouml;schen" class="form-button" id="formClicked">
+                    </fieldset>
+                </form>
+
+            ';
+
         }
 
         // if the post has been sent - validate data and update it
@@ -134,6 +149,18 @@
                     echo '
                         <div class="dbUpdateSuccess">
                             <p>Daten wurden erfolgreich aktualisiert</p>
+                        </div>
+                        ';
+                } else {
+                    echo "Error updating record: " . mysqli_error($conn);
+                }
+            } else if($_GET['buttonClickedDelete']){
+                // prepare Delete statement and show message according to success or not
+                $sqlDelete = "DELETE FROM honigsortiment WHERE idcss='$id'";
+                if (mysqli_query($conn, $sqlDelete)) {
+                    echo '
+                        <div class="dbUpdateSuccess">
+                            <p>Eintrag wurde erfolgreich gel&ouml;scht</p>
                         </div>
                         ';
                 } else {
