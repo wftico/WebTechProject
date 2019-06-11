@@ -32,14 +32,22 @@
             
         <?php
 
+        // validate data function
+        function test_input($data){
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+            }
+
         $id = "";
         $msgToChange = "";
         $msgToValidate = "";
         // set the proper ID value in regards to which button was clicked (property or taste)
         if($_GET['buttonClickedProperties']){
-            $id = $_GET['buttonClickedProperties'];
+            $id = test_input($_GET['buttonClickedProperties']);
         } else if($_GET['buttonClickedTaste']){
-            $id = $_GET['buttonClickedTaste'];
+            $id = test_input($_GET['buttonClickedTaste']);
         }
 
         // Start DB connection 

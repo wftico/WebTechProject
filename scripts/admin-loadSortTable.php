@@ -39,7 +39,7 @@
                                                 <form action="../secure/admin-sortcontrol.php#topAnchor" method="get">
                                                 <input name="buttonClicked" hidden value=\''.$row["idcss"].'\'>
                                                 <input name="req" hidden value="Avail">
-                                                <input type="submit" value="Change">
+                                                <input type="submit" value="&Auml;ndern">
                                                 </form>
                                             </td>
                                         </tr>

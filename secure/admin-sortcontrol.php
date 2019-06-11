@@ -98,6 +98,10 @@
                     // Fügt script zum Erzeugen des Sortiment-Tables ein für den Geschmack
                     include '../scripts/admin-loadSortTableTaste.php';
 
+                } else if($givenRequest == "Del"){
+
+                } else if($givenRequest == "Add"){
+                    
                 }
             ?>
 

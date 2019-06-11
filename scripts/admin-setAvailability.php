@@ -2,11 +2,15 @@
 <?php
             if($_GET['buttonClicked']){
             
-                // current issue: not sanitized, page refresh (F5) instantly triggers the IF GET
-                // also the form doesn't resend, can't change the state twice after another on the same honey
+                // validate data function
+                function test_input($data){
+                    $data = trim($data);
+                    $data = stripslashes($data);
+                    $data = htmlspecialchars($data);
+                    return $data;
+                    }
 
-                // should be sanitized !
-                $id = $_GET['buttonClicked'];
+                $id = test_input($_GET['buttonClicked']);
 
                 // Start DB connection 
                 // Load DB credentials from save location
