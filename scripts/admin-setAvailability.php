@@ -2,15 +2,8 @@
 <?php
             if($_GET['buttonClicked']){
             
-                // validate data function
-                function test_input($data){
-                    $data = trim($data);
-                    $data = stripslashes($data);
-                    $data = htmlspecialchars($data);
-                    return $data;
-                    }
-
-                $id = test_input($_GET['buttonClicked']);
+                
+                $id = $_GET['buttonClicked'];
 
                 // Start DB connection 
                 // Load DB credentials from save location

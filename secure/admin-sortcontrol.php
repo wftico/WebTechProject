@@ -48,26 +48,23 @@
 
             <!-- renders the content in regard to the menu button clicked -->
             <?php
-                // validate data function
-                function test_input($data){
-                $data = trim($data);
-                $data = stripslashes($data);
-                $data = htmlspecialchars($data);
-                return $data;
-                }
 
-                $givenRequest = test_input($_GET["req"]);
+                $givenRequest = "";
+
+                if($_GET["req"]){
+                    $givenRequest = $_GET["req"];
+                }
 
                 // change Availability
                 if($givenRequest == "Avail"){
 
                     // Fügt script zum Erzeugen des Sortiment-Tables ein für die Verfügbarkeit
                     include '../scripts/admin-loadSortTable.php';
-                    // Fügt script zum Bearbeiten des Verfügbarkeitsstatus ein -->
+                    // Fügt script zum Bearbeiten des Verfügbarkeitsstatus ein
                     include '../scripts/admin-setAvailability.php';
 
                     // the script prevents that the availability data gets changed again with the refresh of the page
-                    echo'
+                    echo '
                         <script type="text/javascript">
                         $(document).ready(function(){
                                 var uri = window.location.toString();
@@ -83,8 +80,7 @@
                 else if($givenRequest == "Prop"){
 
                     echo'
-                        <h2 id="topProperties">Sortiment Merkmale</h2>
-                        <p>Passen Sie die Merkmale des Sortiments an.</p>
+                        <h2 id="topProperties">Merkmal &auml;ndern</h2>
                     ';
                     // Fügt script zum Erzeugen des Sortiment-Tables ein für die Merkmale
                     include '../scripts/admin-loadSortTableProperties.php';
@@ -92,16 +88,24 @@
                 } else if($givenRequest == "Taste"){
 
                     echo'
-                        <h2 id="topTaste">Sortiment Geschmack</h2>
-                        <p>Passen Sie die Geschmacksbeschreibung des Sortiments an.</p>
+                        <h2 id="topTaste">Geschmack &auml;ndern</h2>
                     ';
                     // Fügt script zum Erzeugen des Sortiment-Tables ein für den Geschmack
                     include '../scripts/admin-loadSortTableTaste.php';
 
                 } else if($givenRequest == "Del"){
+                    echo'
+                        <h2 id="topDel">Eintrag l&ouml;schen</h2>
+                    ';
                     // Fügt script zum Löschen des Sortiment-Tables ein 
                     include '../scripts/admin-loadSortTableDelete.php';
+
                 } else if($givenRequest == "Add"){
+                    echo'
+                        <h2 id="topAdd">Eintrag hinzuf&uuml;gen</h2>
+                    ';
+                    // Fügt script zum Löschen des Sortiment-Tables ein 
+                    include '../scripts/admin-loadSortTableCreate.php';
 
                 }
             ?>
