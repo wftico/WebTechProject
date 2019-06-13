@@ -106,19 +106,11 @@
             // if the post has been sent - validate data and update it
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-                // validate data function
-                function test_input($data) {
-                    $data = trim($data);
-                    $data = stripslashes($data);
-                    $data = htmlspecialchars($data);
-                    return $data;
-                }
-
                 // validation and updating of data in regards to which action was performed
                 if($_GET['buttonClickedProperties']){
                     // Validation and msg assignment
                     $msgToValidate = $_POST["neuesMerkmal"];
-                    $msgToChange = test_input($msgToValidate);
+                    $msgToChange = $msgToValidate;
                     // set up the SQL Statement
                     $sqlProperty = "UPDATE honigsortiment SET merkmal='$msgToChange' WHERE idcss='$id'";
                     // change the db entry - no proper validation (length and so on)
@@ -134,7 +126,7 @@
                 } else if($_GET['buttonClickedTaste']){
                     // Validation and msg assignment
                     $msgToValidate = $_POST["neuerGeschmack"];
-                    $msgToChange = test_input($msgToValidate);
+                    $msgToChange = $msgToValidate;
                     $sqlTaste = "UPDATE honigsortiment SET geschmack='$msgToChange' WHERE idcss='$id'";
                     // change the db entry - no proper validation (length and so on)
                     if (mysqli_query($conn, $sqlTaste)) {
