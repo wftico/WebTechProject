@@ -107,6 +107,19 @@
                     // Fügt script zum Löschen des Sortiment-Tables ein 
                     include '../scripts/admin-loadSortTableCreate.php';
 
+                    // the script prevents that the availability data gets changed again with the refresh of the page
+                    echo '
+                        <script type="text/javascript">
+                        $(document).ready(function(){
+                                var uri = window.location.toString();
+                                if (uri.indexOf("?") > 0) {
+                                    var clean_uri = uri.substring(0, uri.indexOf("?")) + "?req=Add#topAnchor";
+                                    window.history.replaceState({}, document.title, clean_uri);
+                                }
+                        });
+                        </script>
+                    ';
+
                 }
             ?>
 

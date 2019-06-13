@@ -7,8 +7,29 @@
 
     // Prepared statements
     $sql = "SELECT * FROM honigsortiment";
-    $sqlFruehtrachtInsert = "INSERT INTO honigsortiment ('name', idcss, imageurl, preis, merkmal, geschmack, display)
-    VALUES ('Fruehtracht', 'fruehtracht', './img', '6', 'Neu', 'Ne2', 'true');";
+    // Statements to create the various preset honey
+    $sqlInsertFruehtracht = "INSERT INTO honigsortiment (name, idcss, imageurl, preis, merkmal, geschmack, display)
+    VALUES ('Fr&uuml;htracht', 'fruehtracht', './images/sortiment/Fruehtracht.jpg', '6', 'heller, fl&uuml;ssiger Bl&uuml;tenhonig, hoher Kernobstanteil, Hauptleitpollen Vergissmeinnicht', 'mildes, rundes und warmes Aroma', 'true');";
+    $sqlInsertFruehjahrsbluetenhonig = "INSERT INTO honigsortiment (name, idcss, imageurl, preis, merkmal, geschmack, display)
+    VALUES ('Fr&uuml;hjahrsbl&uuml;tenhonig', 'fruehjahrsbluetenhon', './images/sortiment/FruehjahrBluetenhonig2017.jpg', '5', 'fester, br&auml;unlicher Bl&uuml;tenhonig, hoher Anteil an Vergissmeinnicht', 'aromatisch', 'true');";
+    $sqlInsertHeidehonig = "INSERT INTO honigsortiment (name, idcss, imageurl, preis, merkmal, geschmack, display)
+    VALUES ('Heidehonig', 'heidehonig', './images/sortiment/Heidehonig2017.jpg', '6', 'goldbraun auch bernsteinfarben, zartfl&uuml;ssig', 'kr&auml;ftig mit einzigartigem Aroma, herb und w&uuml;rzig', 'true');";
+    $sqlInsertKornblumenhonig = "INSERT INTO honigsortiment (name, idcss, imageurl, preis, merkmal, geschmack, display)
+    VALUES ('Kornblumenhonig', 'kornblumenhonig', './images/sortiment/Kornblume.jpg', '6.5', 'fester Honig, hohe antibakterielle Wirkung', 'w&uuml;rzigs&uuml;&szlig; und typisches Aroma', 'true');";
+    $sqlInsertLindenhonig = "INSERT INTO honigsortiment (name, idcss, imageurl, preis, merkmal, geschmack, display)
+    VALUES ('Lindenhonig', 'lindenhonig', './images/sortiment/Lindenhonig2017.jpg', '6', 'hellgelb bis beige', 'sehr s&uuml;&szlig;, typisch aromatisch, mit leicht minzigem Geschmack', 'true');";
+    $sqlInsertRobinienhonig = "INSERT INTO honigsortiment (name, idcss, imageurl, preis, merkmal, geschmack, display)
+    VALUES ('Robinienhonig', 'robinienhonig', './images/sortiment/Robinienhonig2017.jpg', '7', 'fast farblos bis hellgelb, bleibt extrem lange fl&uuml;ssig', 'schwach aromatisch, blumig-mild', 'true');";
+    $sqlInsertSommerbluete = "INSERT INTO honigsortiment (name, idcss, imageurl, preis, merkmal, geschmack, display)
+    VALUES ('Sommerbl&uuml;te', 'sommerbluete', './images/sortiment/Sommerbluete2017.jpg', '6.5', 'kr&auml;ftig gelb bis braun', 'liebliches Aroma', 'true');";
+    $sqlInsertWaldhonig = "INSERT INTO honigsortiment (name, idcss, imageurl, preis, merkmal, geschmack, display)
+    VALUES ('Waldhonig', 'waldhonig', './images/sortiment/Waldhonig2017.jpg', '10', 'dunkel Lernsteinfarben, dunkelbraun bis fast schwarz', 'intensiv malziges Aroma', 'true');";
+    $sqlInsertRapshonig = "INSERT INTO honigsortiment (name, idcss, imageurl, preis, merkmal, geschmack, display)
+    VALUES ('Rapshonig', 'rapshonig', './images/sortiment/rapshonig2017.jpg', '6', 'cremiger, heller fast wei&szlig;er Honig, gleichm&auml;ßige und feine Kristallisation', 'charakteristisch mild', 'true');";
+    $sqlInsertSommertracht = "INSERT INTO honigsortiment (name, idcss, imageurl, preis, merkmal, geschmack, display)
+    VALUES ('Sommertracht', 'sommertracht', './images/sortiment/Sommertracht2017.jpg', '7', 'cremiger Sommerhonig mit Rapsanteil', 'angenehm kr&auml;ftig', 'true');";
+    $sqlInsertHimbeerhonig = "INSERT INTO honigsortiment (name, idcss, imageurl, preis, merkmal, geschmack, display)
+    VALUES ('Himbeerhonig', 'himbeerhonig', './images/sortiment/Himbeerhonig2017.jpg', '6.5', 'hellgelb', 'feiner Himbeergeschmack', 'true');";
 
     // Variable for the query results
     $result = $conn->query($sql);
@@ -33,29 +54,20 @@
         $result = $dbConnection->query($sqlStatement);
 
         // DB Abfrage
-        echo '<p>started</p>';
         $idExistent = 0;
 
         // DB query serves 1 or more entries
         if ($result->num_rows > 0){
-            echo '<p>larger than 0</p>';
             while($row = $result->fetch_assoc()){
 
                 $dummy = $row["idcss"];
                 // if the givenID is present in the DB already
                 if($givenID == $dummy){
                     $idExistent += 1;
-                    echo '<p>found</p>';
                 } else {
-                    echo '<p>not found</p>';
                 }
-                echo '<p>Hit</p>';
             }
         }
-        echo '<p>ended</p>';
-
-        echo ''.$idExistent.'';
-
         // if the ID isn't found, it should be a table entry created
         if($idExistent == 0){
             return true;
@@ -64,30 +76,142 @@
         }
     }
         
+    // Arrays
+    $idArr = array("fruehtracht", "fruehjahrsbluetenhon", "heidehonig", "kornblumenhonig", "lindenhonig", "robinienhonig", "sommerbluete", "waldhonig", "rapshonig", "sommertracht", "himbeerhonig");
+    $dspArr = array();
+    $nameArr = array("Fr&uuml;htracht", "Fr&uuml;hjahrsbl&uuml;tenhonig", "Heidehonig", "Kornblumbenhonig", "Lindenhonig", "Robinienhonig", "Sommerbl&uuml;te", "Waldhonig", "Rapshonig", "Sommertracht", "Himbeerhonig" );
 
-    // Frühtracht
-    $idFruehtracht = "fruehtracht";
-    $displayFruehtracht = lookForID($conn, $sql, $idFruehtracht);
-    // wenn die ID nicht gefunden wird, wird ein Eintrag zur Erstellung ausgegeben
-    if ($displayFruehtracht == true) {
+    // fills the dspArr with true/false values, regarding if they should be shown or not
+    for($i = 0; $i < count($idArr); $i++){
+        $dspArr[$i] = lookForID($conn, $sql, $idArr[$i]);
+
+        // does the acual display of the table content - checks the arrays which IDs should be displayed
+        if($dspArr[$i] == true){
             echo '
             <tr>
-            <td>Fr&uuml;htracht</td>
+            <td>'.$nameArr[$i].'</td>
             <td>
-            <form action="../secure/admin-sortcontrol.php" method="post">
-            <input name="buttonClickedCreate" hidden value=\'fruehtracht\'>
+            <form action="../secure/admin-sortcontrol.php?req=Add&buttonClickedCreate='.$idArr[$i].'" method="post">
+            <input name="buttonClickedCreate" hidden value="'.$idArr[$i].'">
             <input name="req" hidden value="Add">
             <input type="submit" value="Hinzuf&uuml;gen">
             </form>
             </td>
             </tr>
             ';
+        }
+    }
 
             // maybe script to clean url is needed for the refresh page fix? 
-    } 
-
+    
     echo '</table>';
 
+
+    // POST part handling - when post, check for the posted ID and fulfill the create SQL query
+    if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+        echo 'is post';
+        if($_POST["buttonClickedCreate"]){
+            // saves the ID to the toCreate variable
+            $toCreate = $_POST["buttonClickedCreate"];
+            echo 'set variable';
+            // finds out which ID needs to be inserted
+            switch($toCreate){
+                case 'fruehtracht': 
+                    if ($conn->query($sqlInsertFruehtracht) === TRUE) {
+                        echo '<p class="rec-Created">Eintrag erfolgreich erstellt.</p>';
+
+                    } else {
+                        echo "Error: " . $sql . "<br>" . $conn->error;
+                    }
+                    break;
+                case 'fruehjahrsbluetenhon': 
+                    if ($conn->query($sqlInsertFruehjahrsbluetenhonig) === TRUE) {
+                        echo '<p class="rec-Created">Eintrag erfolgreich erstellt.</p>';
+
+                    } else {
+                        echo "Error: " . $sql . "<br>" . $conn->error;
+                    }
+                    break;
+                case 'heidehonig': 
+                    if ($conn->query($sqlInsertHeidehonig) === TRUE) {
+                        echo '<p class="rec-Created">Eintrag erfolgreich erstellt.</p>';
+
+                    } else {
+                        echo "Error: " . $sql . "<br>" . $conn->error;
+                    }
+                    break;
+                case 'kornblumenhonig': 
+                    if ($conn->query($sqlInsertKornblumenhonig) === TRUE) {
+                        echo '<p class="rec-Created">Eintrag erfolgreich erstellt.</p>';
+
+                    } else {
+                        echo "Error: " . $sql . "<br>" . $conn->error;
+                    }
+                    break;
+                case 'lindenhonig': 
+                    if ($conn->query($sqlInsertLindenhonig) === TRUE) {
+                        echo '<p class="rec-Created">Eintrag erfolgreich erstellt.</p>';
+
+                    } else {
+                        echo "Error: " . $sql . "<br>" . $conn->error;
+                    }
+                    break;
+                case 'robinienhonig': 
+                    if ($conn->query($sqlInsertRobinienhonig) === TRUE) {
+                        echo '<p class="rec-Created">Eintrag erfolgreich erstellt.</p>';
+
+                    } else {
+                        echo "Error: " . $sql . "<br>" . $conn->error;
+                    }
+                    break;
+                case 'sommerbluete': 
+                    if ($conn->query($sqlInsertSommerbluete) === TRUE) {
+                        echo '<p class="rec-Created">Eintrag erfolgreich erstellt.</p>';
+
+                    } else {
+                        echo "Error: " . $sql . "<br>" . $conn->error;
+                    }
+                    break;
+                case 'waldhonig': 
+                    if ($conn->query($sqlInsertWaldhonig) === TRUE) {
+                        echo '<p class="rec-Created">Eintrag erfolgreich erstellt.</p>';
+
+                    } else {
+                        echo "Error: " . $sql . "<br>" . $conn->error;
+                    }
+                    break;
+                case 'rapshonig': 
+                    if ($conn->query($sqlInsertRapshonig) === TRUE) {
+                        echo '<p class="rec-Created">Eintrag erfolgreich erstellt.</p>';
+
+                    } else {
+                        echo "Error: " . $sql . "<br>" . $conn->error;
+                    }
+                    break;
+                case 'sommertracht': 
+                    if ($conn->query($sqlInsertSommertracht) === TRUE) {
+                        echo '<p class="rec-Created">Eintrag erfolgreich erstellt.</p>';
+
+                    } else {
+                        echo "Error: " . $sql . "<br>" . $conn->error;
+                    }
+                    break;
+                case 'himbeerhonig': 
+                    if ($conn->query($sqlInsertHimbeerhonig) === TRUE) {
+                        echo '<p class="rec-Created">Eintrag erfolgreich erstellt.</p>';
+
+                    } else {
+                        echo "Error: " . $sql . "<br>" . $conn->error;
+                    }
+                    break;
+                    
+            break;    
+            }
+
+        }
+    }
+
+    
     
 
  $conn->close();
