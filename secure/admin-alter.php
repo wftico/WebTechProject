@@ -142,6 +142,7 @@
                             $validCount++;
                         }
                     }
+                    
                     // if all entries are valid, show success and update database
                     if($validCount >= 6){
                         echo '<p>HARD SUCCESS!</p>';
