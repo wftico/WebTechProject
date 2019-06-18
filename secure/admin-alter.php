@@ -32,6 +32,126 @@
             
         <?php
 
+            $errNameAdd = $errIdAdd = $errPreisAdd = $errImgurlAdd = $errMerkmalAdd = $errGeschmackAdd = "";
+            $inpName = $inpId = $inpPreis = $inpImgurl = $inpMerkmal = $inpGeschmack = "";
+            // Array that serves the information, if a valid information has already been provided
+            // the order is: inpName, inpID, inpPreis, inpImgurl, inpMerkmal, inpGeschmack
+            $validEntries = array(false, false, false, false, false, false);
+            $fullValidationMessage = "";
+
+            function cleanInput($data){
+                $data = trim($data);
+                $data = stripslashes($data); // for URL as well?
+                $data = htmlspecialchars($data);
+                return $data;
+            }
+
+            function cleanURL($data){
+                $data = trim($data);
+                $data = htmlspecialchars($data);
+                return $data;
+            }
+
+            // post data error checking, is data valid? For the ADD ENTRY function
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+                if($_GET['addDone']){
+                    // CHECK FOR NAME
+                    if (empty($_POST['name'])) {
+                        $errNameAdd = "Sie müssen einen Namen eingeben.";
+                    } else {
+                        // if input is not empty, first check if the input length is in line
+                        if(strlen($_POST['name']) < 100){
+                            // here we have a valid input, which has to be cleaned
+                            $inpName = cleanInput($_POST['name']);
+                            $validEntries[0] = true;
+                        } else {
+                            $errNameAdd = "Ihre Eingabe darf 100 Zeichen nicht &uuml;berschreiten.";
+                        }
+                    }
+                    // CHECK FOR ID
+                    if (empty($_POST['id'])) {
+                        $errIdAdd = "Sie müssen eine ID eingeben.";
+                    } else {
+                        // if input is not empty, first check if the input length is in line
+                        if(strlen($_POST['id']) < 100){
+                            // here we have a valid input, which has to be cleaned
+                            $inpId = cleanInput($_POST['id']);
+                            $validEntries[1] = true;
+                        } else {
+                            $errIdAdd = "Ihre Eingabe darf 100 Zeichen nicht &uuml;berschreiten.";
+                        }
+                    }
+                    // CHECK FOR PREIS
+                    if (empty($_POST['preis'])) {
+                        $errPreisAdd = "Sie müssen einen gültigen Preis eingeben.";
+                    } else {
+                        // if input is not empty, first check if the input length is in line
+                        if(strlen($_POST['preis']) < 10){
+                            // here we have a valid input, which has to be cleaned
+                            $inpPreis = cleanInput($_POST['preis']);
+                            $validEntries[2] = true;
+                        } else {
+                            $errPreisAdd = "Ihre Eingabe darf 10 Zeichen nicht &uuml;berschreiten.";
+                        }
+                    }
+                    // CHECK FOR IMG URL
+                    if (empty($_POST['imgurl'])){
+                        $validEntries[3] = true;
+                    } else {
+                        // if input is not empty, first check if the input length is in line
+                        if(strlen($_POST['imgurl']) < 100){
+                            // here we have a valid input, which has to be cleaned
+                            $inpImgurl = cleanURL($_POST['imgurl']);
+                            $validEntries[3] = true;
+                        } else {
+                            $errImgurlAdd = "Ihre Eingabe darf 100 Zeichen nicht &uuml;berschreiten.";
+                        }
+                    }
+                    // CHECK FOR MERKMAL
+                    if (empty($_POST['merkmal'])){
+                        $errMerkmalAdd = "Sie müssen ein Merkmal eingeben.";
+                    } else {
+                        // if input is not empty, first check if the input length is in line
+                        if(strlen($_POST['merkmal']) < 200){
+                            // here we have a valid input, which has to be cleaned
+                            $inpMerkmal = cleanInput($_POST['merkmal']);
+                            $validEntries[4] = true;
+                        } else {
+                            $errMerkmalAdd = "Ihre Eingabe darf 200 Zeichen nicht &uuml;berschreiten.";
+                        }
+                    }
+                    // CHECK FOR GESCHMACK
+                    if (empty($_POST['geschmack'])){
+                        $errGeschmackAdd = "Sie müssen eine Geschmackseigenschaft eingeben.";
+                    } else {
+                        // if input is not empty, first check if the input length is in line
+                        if(strlen($_POST['geschmack']) < 100){
+                            // here we have a valid input, which has to be cleaned
+                            $inpGeschmack = cleanInput($_POST['geschmack']);
+                            $validEntries[5] = true;
+                        } else {
+                            $errGeschmackAdd = "Ihre Eingabe darf 100 Zeichen nicht &uuml;berschreiten.";
+                        }
+                    }
+
+                    // counts how many entries are actually valid
+                    $validCount = 0;
+                    for($i = 0; $i < count($validEntries); $i++){
+                        if($validEntries[$i] == true){
+                            $validCount++;
+                        }
+                    }
+                    // if all entries are valid, show success and update database
+                    if($validCount >= 6){
+                        echo '<p>HARD SUCCESS!</p>';
+                    }
+                    
+
+                } // get if add_done end
+            }// post end
+
+
             $id = "";
             $msgToChange = "";
             $msgToValidate = "";
@@ -88,6 +208,7 @@
                         </fieldset>
                     </form>
                 ';
+
             } else if($_GET['buttonClickedDelete']){
 
                 echo'
@@ -100,6 +221,36 @@
                     </form>
 
                 ';
+
+            } else if($_GET['addEntry']){
+
+                echo'
+                <h1>Eintrag hinzuf&uuml;gen</h1>
+                <div class="col-12" id="kontakt-top-border"></div>
+                    <div class="col-12 background-yellow form-headlines yBox-spacerTop">
+                        <form method="post" action="../secure/admin-alter.php?addEntry=yes&addDone=yes" class="form-horizontal">
+                            <fieldset>
+                                <legend>Daten f&uuml;r den neuen Eintrag</legend>
+                                <label>Name:<br> <input name="name" type="text" class="form-input" size="50" placeholder="Geben Sie einen Namen ein (*)" /></label>
+                                <br /> <p><span class="form-error">'.$errNameAdd.'</span></p>
+                                <label>ID:<br> <input name="id" type="text" class="form-input" size="50" placeholder="Geben Sie eine ID ein (*)" /></label>
+                                <br /> <p><span class="form-error">'.$errIdAdd.'</span></p>
+                                <label>Preis:<br> <input name="preis" type="number" class="form-input" size="50" placeholder="Geben Sie den Preis ein (*)" /></label>
+                                <br /> <p><span class="form-error">'.$errPreisAdd.'</span></p>
+                                <label>Bild-URL:<br> <input name="imgurl" type="text" class="form-input" size="50" placeholder="Geben Sie die URL zum Bild ein" /></label>
+                                <br /> <p><span class="form-error">'.$errImgurlAdd.'</span></p>
+                                <label>Merkmale:<br> <input name="merkmal" type="text" class="form-input" size="50" placeholder="Geben Sie Merkmale ein (*)" /></label>
+                                <br /> <p><span class="form-error">'.$errMerkmalAdd.'</span></p>
+                                <label>Geschmack:<br> <input name="geschmack" type="text" class="form-input" size="50" placeholder="Geben Sie Geschmackseigenschaften ein (*)" /></label>
+                                <br /> <p><span class="form-error">'.$errGeschmackAdd.'</span></p>
+                                <input type="submit" name="submit" value="Eintrag hinzufügen" class="form-button" id="formClicked">
+                                <br /> <p><span class="form-valid">'.$fullValidationMessage.'</span></p>
+                            </fieldset>
+                        </form>
+                    </div>
+                <div class="col-12" id="kontakt-bottom-border"></div>
+                </form>
+            ';
 
             }
 
@@ -150,7 +301,7 @@
                     } else {
                         echo "Error updating record: " . mysqli_error($conn);
                     }
-                }
+                } 
             }
 
             echo '

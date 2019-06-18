@@ -90,7 +90,7 @@
         return $data;
         }
 
-        // send email
+        // send email - currenty it seems even if entries were wrong
         mail("wfsona@yahoo.de",$topic,$msg);
         ?>
 

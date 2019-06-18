@@ -106,6 +106,14 @@
     
     echo '</table>';
 
+    // section to create a fully new entry
+    
+    echo '
+        <h3>Komplett neuen Eintrag hinzuf&uuml;gen</h3>
+        <a href="../secure/admin-alter.php?addEntry=true" target="_self">Hier klicken um fortzufahren...</a>
+    ';
+
+
 
     // POST part handling - when post, check for the posted ID and fulfill the create SQL query
     if ($_SERVER['REQUEST_METHOD'] === 'POST'){
