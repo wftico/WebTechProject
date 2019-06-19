@@ -34,10 +34,12 @@
 
             $errNameAdd = $errIdAdd = $errPreisAdd = $errImgurlAdd = $errMerkmalAdd = $errGeschmackAdd = "";
             $inpName = $inpId = $inpPreis = $inpImgurl = $inpMerkmal = $inpGeschmack = "";
+            $inpDisplay = "true";
             // Array that serves the information, if a valid information has already been provided
             // the order is: inpName, inpID, inpPreis, inpImgurl, inpMerkmal, inpGeschmack
             $validEntries = array(false, false, false, false, false, false);
             $fullValidationMessage = "";
+            $dbAddError = "";
 
             function cleanInput($data){
                 $data = trim($data);
@@ -142,13 +144,61 @@
                             $validCount++;
                         }
                     }
-                    
+
                     // if all entries are valid, show success and update database
                     if($validCount >= 6){
-                        echo '<p>HARD SUCCESS!</p>';
-                    }
-                    
 
+                        // Start DB connection 
+                        // Load DB credentials from save location
+                        include 'db_credentials.php';
+
+                        try {
+                            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+                            // set the PDO error mode to exception
+                            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                            
+                             // prepare sql and bind parameters
+                             $stmt = $conn->prepare("INSERT INTO honigsortiment (name, idcss, preis, imageurl, merkmal, geschmack) 
+                             VALUES (:name, :idcss, :preis, :imageurl, :merkmal, :geschmack)");
+                             $stmt->bindParam(':name', $inpName);
+                             $stmt->bindParam(':idcss', $inpId);
+                             $stmt->bindParam(':preis', $inpPreis);
+                             $stmt->bindParam(':imageurl', $inpImgurl);
+                             $stmt->bindParam(':merkmal', $inpMerkmal);
+                             $stmt->bindParam(':geschmack', $inpGeschmack);
+                         
+                             $stmt->execute();
+                         
+                             $fullValidationMessage = "Neuer Eintrag wurde erfolgreich hinzugefügt";
+
+                             echo '
+                                <div id="successMessageAbsolute"><p><span class="form-valid">'.$fullValidationMessage.'</span></p></div>
+                             
+                                <script type="text/javascript">
+                                    $("#successMessageAbsolute").click(function () {
+                                        $("#successMessageAbsolute").fadeOut(500);
+                                    });
+                                </script>
+                             ';
+                        
+                            }
+                        catch(PDOException $e)
+                            {
+                                $dbAddError = $e->getMessage();
+
+                                echo '
+                                <div id="errorMessageAbsolute"><p><span class="form-valid">'.$dbAddError.'</span></p></div>
+                             
+                                <script type="text/javascript">
+                                    $("#errorMessageAbsolute").click(function () {
+                                        $("#errorMessageAbsolute").fadeOut(500);
+                                    });
+                                </script>
+                             ';
+                            }
+                        $conn = null;
+                    } // valid code end
+                    
                 } // get if add_done end
             }// post end
 
@@ -245,7 +295,6 @@
                                 <label>Geschmack:<br> <input name="geschmack" type="text" class="form-input" size="50" placeholder="Geben Sie Geschmackseigenschaften ein (*)" /></label>
                                 <br /> <p><span class="form-error">'.$errGeschmackAdd.'</span></p>
                                 <input type="submit" name="submit" value="Eintrag hinzufügen" class="form-button" id="formClicked">
-                                <br /> <p><span class="form-valid">'.$fullValidationMessage.'</span></p>
                             </fieldset>
                         </form>
                     </div>

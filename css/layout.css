@@ -261,6 +261,49 @@ body {
     margin-right: auto;
 }
 
+#successMessageAbsolute{
+    position: fixed !important;
+    bottom: 30px !important;
+    z-index: 200 !important;
+    color: white;
+    background-color: forestgreen;
+    border-color: #a94442;
+    padding: 4px 4px 4px 4px;
+    border-width: 1px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-align: center;
+    left: 30%;
+    right: 30%;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: 'Varela Round', sans-serif;
+}
+
+#errorMessageAbsolute{
+    position: fixed !important;
+    bottom: 30px !important;
+    z-index: 200 !important;
+    color: white;
+    background-color:  #a94442;
+    padding: 4px 4px 4px 4px;
+    border-width: 1px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-align: center;
+    left: 30%;
+    right: 30%;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: 'Varela Round', sans-serif;
+}
+
 /* linebar - looks like: ------ TEXT ------
 Put a div with class "col-12" and "linebar", inside of it, 
 firstly class "linebar-before", then <p> or <h1>,
