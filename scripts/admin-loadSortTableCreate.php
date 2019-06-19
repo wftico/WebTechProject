@@ -117,99 +117,262 @@
 
     // POST part handling - when post, check for the posted ID and fulfill the create SQL query
     if ($_SERVER['REQUEST_METHOD'] === 'POST'){
-        echo 'is post';
         if($_POST["buttonClickedCreate"]){
             // saves the ID to the toCreate variable
             $toCreate = $_POST["buttonClickedCreate"];
-            echo 'set variable';
             // finds out which ID needs to be inserted
             switch($toCreate){
                 case 'fruehtracht': 
                     if ($conn->query($sqlInsertFruehtracht) === TRUE) {
-                        echo '<p class="rec-Created">Eintrag erfolgreich erstellt.</p>';
+                        echo '
+                        <div id="successMessageAbsolute"><p>Eintrag erfolgreich erstellt.</p></div>
+                            <script type="text/javascript">
+                                $("#successMessageAbsolute").click(function () {
+                                    $("#successMessageAbsolute").fadeOut(500);
+                                });
+                            </script>
+                        ';
 
                     } else {
-                        echo "Error: " . $sql . "<br>" . $conn->error;
+                        echo '
+                            <div id="errorMessageAbsolute"><p><span class="form-valid">Error: '.$conn->error.'</span></p></div>
+                             
+                            <script type="text/javascript">
+                                $("#errorMessageAbsolute").click(function () {
+                                    $("#errorMessageAbsolute").fadeOut(500);
+                                });
+                            </script>
+                        ';
                     }
                     break;
                 case 'fruehjahrsbluetenhon': 
                     if ($conn->query($sqlInsertFruehjahrsbluetenhonig) === TRUE) {
-                        echo '<p class="rec-Created">Eintrag erfolgreich erstellt.</p>';
+                        echo '
+                        <div id="successMessageAbsolute"><p>Eintrag erfolgreich erstellt.</p></div>
+                        <script type="text/javascript">
+                            $("#successMessageAbsolute").click(function () {
+                                $("#successMessageAbsolute").fadeOut(500);
+                            });
+                        </script>
+                        ';
 
                     } else {
-                        echo "Error: " . $sql . "<br>" . $conn->error;
+                        echo '
+                        <div id="errorMessageAbsolute"><p><span class="form-valid">Error: '.$conn->error.'</span></p></div>
+                         
+                        <script type="text/javascript">
+                            $("#errorMessageAbsolute").click(function () {
+                                $("#errorMessageAbsolute").fadeOut(500);
+                            });
+                        </script>
+                    ';
                     }
                     break;
                 case 'heidehonig': 
                     if ($conn->query($sqlInsertHeidehonig) === TRUE) {
-                        echo '<p class="rec-Created">Eintrag erfolgreich erstellt.</p>';
+                        echo '
+                        <div id="successMessageAbsolute"><p>Eintrag erfolgreich erstellt.</p></div>
+                            <script type="text/javascript">
+                                $("#successMessageAbsolute").click(function () {
+                                    $("#successMessageAbsolute").fadeOut(500);
+                                });
+                            </script>
+                        ';
 
                     } else {
-                        echo "Error: " . $sql . "<br>" . $conn->error;
+                        echo '
+                            <div id="errorMessageAbsolute"><p><span class="form-valid">Error: '.$conn->error.'</span></p></div>
+                             
+                            <script type="text/javascript">
+                                $("#errorMessageAbsolute").click(function () {
+                                    $("#errorMessageAbsolute").fadeOut(500);
+                                });
+                            </script>
+                        ';
                     }
                     break;
                 case 'kornblumenhonig': 
                     if ($conn->query($sqlInsertKornblumenhonig) === TRUE) {
-                        echo '<p class="rec-Created">Eintrag erfolgreich erstellt.</p>';
+                        echo '
+                        <div id="successMessageAbsolute"><p>Eintrag erfolgreich erstellt.</p></div>
+                            <script type="text/javascript">
+                                $("#successMessageAbsolute").click(function () {
+                                    $("#successMessageAbsolute").fadeOut(500);
+                                });
+                            </script>
+                        ';
 
                     } else {
-                        echo "Error: " . $sql . "<br>" . $conn->error;
+                        echo '
+                        <div id="errorMessageAbsolute"><p><span class="form-valid">Error: '.$conn->error.'</span></p></div>
+                         
+                        <script type="text/javascript">
+                            $("#errorMessageAbsolute").click(function () {
+                                $("#errorMessageAbsolute").fadeOut(500);
+                            });
+                        </script>
+                    ';
                     }
                     break;
                 case 'lindenhonig': 
                     if ($conn->query($sqlInsertLindenhonig) === TRUE) {
-                        echo '<p class="rec-Created">Eintrag erfolgreich erstellt.</p>';
+                        echo '
+                        <div id="successMessageAbsolute"><p>Eintrag erfolgreich erstellt.</p></div>
+                            <script type="text/javascript">
+                                $("#successMessageAbsolute").click(function () {
+                                    $("#successMessageAbsolute").fadeOut(500);
+                                });
+                            </script>
+                        ';
 
                     } else {
-                        echo "Error: " . $sql . "<br>" . $conn->error;
+                        echo '
+                        <div id="errorMessageAbsolute"><p><span class="form-valid">Error: '.$conn->error.'</span></p></div>
+                         
+                        <script type="text/javascript">
+                            $("#errorMessageAbsolute").click(function () {
+                                $("#errorMessageAbsolute").fadeOut(500);
+                            });
+                        </script>
+                    ';
                     }
                     break;
                 case 'robinienhonig': 
                     if ($conn->query($sqlInsertRobinienhonig) === TRUE) {
-                        echo '<p class="rec-Created">Eintrag erfolgreich erstellt.</p>';
+                        echo '
+                        <div id="successMessageAbsolute"><p>Eintrag erfolgreich erstellt.</p></div>
+                            <script type="text/javascript">
+                                $("#successMessageAbsolute").click(function () {
+                                    $("#successMessageAbsolute").fadeOut(500);
+                                });
+                            </script>
+                        ';
 
                     } else {
-                        echo "Error: " . $sql . "<br>" . $conn->error;
+                        echo '
+                        <div id="errorMessageAbsolute"><p><span class="form-valid">Error: '.$conn->error.'</span></p></div>
+                         
+                        <script type="text/javascript">
+                            $("#errorMessageAbsolute").click(function () {
+                                $("#errorMessageAbsolute").fadeOut(500);
+                            });
+                        </script>
+                    ';
                     }
                     break;
                 case 'sommerbluete': 
                     if ($conn->query($sqlInsertSommerbluete) === TRUE) {
-                        echo '<p class="rec-Created">Eintrag erfolgreich erstellt.</p>';
+                        echo '
+                        <div id="successMessageAbsolute"><p>Eintrag erfolgreich erstellt.</p></div>
+                            <script type="text/javascript">
+                                $("#successMessageAbsolute").click(function () {
+                                    $("#successMessageAbsolute").fadeOut(500);
+                                });
+                            </script>
+                        ';
 
                     } else {
-                        echo "Error: " . $sql . "<br>" . $conn->error;
+                        echo '
+                        <div id="errorMessageAbsolute"><p><span class="form-valid">Error: '.$conn->error.'</span></p></div>
+                         
+                        <script type="text/javascript">
+                            $("#errorMessageAbsolute").click(function () {
+                                $("#errorMessageAbsolute").fadeOut(500);
+                            });
+                        </script>
+                    ';
                     }
                     break;
                 case 'waldhonig': 
                     if ($conn->query($sqlInsertWaldhonig) === TRUE) {
-                        echo '<p class="rec-Created">Eintrag erfolgreich erstellt.</p>';
+                        echo '
+                        <div id="successMessageAbsolute"><p>Eintrag erfolgreich erstellt.</p></div>
+                            <script type="text/javascript">
+                                $("#successMessageAbsolute").click(function () {
+                                    $("#successMessageAbsolute").fadeOut(500);
+                                });
+                            </script>
+                        ';
 
                     } else {
-                        echo "Error: " . $sql . "<br>" . $conn->error;
+                        echo '
+                        <div id="errorMessageAbsolute"><p><span class="form-valid">Error: '.$conn->error.'</span></p></div>
+                         
+                        <script type="text/javascript">
+                            $("#errorMessageAbsolute").click(function () {
+                                $("#errorMessageAbsolute").fadeOut(500);
+                            });
+                        </script>
+                    ';
                     }
                     break;
                 case 'rapshonig': 
                     if ($conn->query($sqlInsertRapshonig) === TRUE) {
-                        echo '<p class="rec-Created">Eintrag erfolgreich erstellt.</p>';
+                        echo '
+                        <div id="successMessageAbsolute"><p>Eintrag erfolgreich erstellt.</p></div>
+                            <script type="text/javascript">
+                                $("#successMessageAbsolute").click(function () {
+                                    $("#successMessageAbsolute").fadeOut(500);
+                                });
+                            </script>
+                        ';
 
                     } else {
-                        echo "Error: " . $sql . "<br>" . $conn->error;
+                        echo '
+                        <div id="errorMessageAbsolute"><p><span class="form-valid">Error: '.$conn->error.'</span></p></div>
+                         
+                        <script type="text/javascript">
+                            $("#errorMessageAbsolute").click(function () {
+                                $("#errorMessageAbsolute").fadeOut(500);
+                            });
+                        </script>
+                    ';
                     }
                     break;
                 case 'sommertracht': 
                     if ($conn->query($sqlInsertSommertracht) === TRUE) {
-                        echo '<p class="rec-Created">Eintrag erfolgreich erstellt.</p>';
+                        echo '
+                        <div id="successMessageAbsolute"><p>Eintrag erfolgreich erstellt.</p></div>
+                            <script type="text/javascript">
+                                $("#successMessageAbsolute").click(function () {
+                                    $("#successMessageAbsolute").fadeOut(500);
+                                });
+                            </script>
+                        ';
 
                     } else {
-                        echo "Error: " . $sql . "<br>" . $conn->error;
+                        echo '
+                        <div id="errorMessageAbsolute"><p><span class="form-valid">Error: '.$conn->error.'</span></p></div>
+                         
+                        <script type="text/javascript">
+                            $("#errorMessageAbsolute").click(function () {
+                                $("#errorMessageAbsolute").fadeOut(500);
+                            });
+                        </script>
+                    ';
                     }
                     break;
                 case 'himbeerhonig': 
                     if ($conn->query($sqlInsertHimbeerhonig) === TRUE) {
-                        echo '<p class="rec-Created">Eintrag erfolgreich erstellt.</p>';
+                        echo '
+                        <div id="successMessageAbsolute"><p>Eintrag erfolgreich erstellt.</p></div>
+                            <script type="text/javascript">
+                                $("#successMessageAbsolute").click(function () {
+                                    $("#successMessageAbsolute").fadeOut(500);
+                                });
+                            </script>
+                        ';
 
                     } else {
-                        echo "Error: " . $sql . "<br>" . $conn->error;
+                        echo '
+                        <div id="errorMessageAbsolute"><p><span class="form-valid">Error: '.$conn->error.'</span></p></div>
+                         
+                        <script type="text/javascript">
+                            $("#errorMessageAbsolute").click(function () {
+                                $("#errorMessageAbsolute").fadeOut(500);
+                            });
+                        </script>
+                    ';
                     }
                     break;
                     

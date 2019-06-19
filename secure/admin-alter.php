@@ -317,9 +317,12 @@
                     // change the db entry - no proper validation (length and so on)
                     if (mysqli_query($conn, $sqlProperty)) {
                         echo '
-                            <div class="dbUpdateSuccess">
-                                <p>Daten wurden erfolgreich aktualisiert</p>
-                            </div>
+                            <div id="successMessageAbsolute"><p>Daten wurden erfolgreich aktualisiert</p></div>
+                            <script type="text/javascript">
+                                $("#successMessageAbsolute").click(function () {
+                                    $("#successMessageAbsolute").fadeOut(500);
+                                });
+                            </script>
                             ';
                     } else {
                         echo "Error updating record: " . mysqli_error($conn);
@@ -332,9 +335,12 @@
                     // change the db entry - no proper validation (length and so on)
                     if (mysqli_query($conn, $sqlTaste)) {
                         echo '
-                            <div class="dbUpdateSuccess">
-                                <p>Daten wurden erfolgreich aktualisiert</p>
-                            </div>
+                            <div id="successMessageAbsolute"><p>Daten wurden erfolgreich aktualisiert</p></div>
+                            <script type="text/javascript">
+                                $("#successMessageAbsolute").click(function () {
+                                    $("#successMessageAbsolute").fadeOut(500);
+                                });
+                            </script>
                             ';
                     } else {
                         echo "Error updating record: " . mysqli_error($conn);
@@ -344,9 +350,12 @@
                     $sqlDelete = "DELETE FROM honigsortiment WHERE idcss='$id'";
                     if (mysqli_query($conn, $sqlDelete)) {
                         echo '
-                            <div class="dbUpdateSuccess">
-                                <p>Eintrag wurde erfolgreich gel&ouml;scht</p>
-                            </div>
+                            <div id="successMessageAbsolute"><p>Eintrag wurde erfolgreich gel&ouml;scht</p></div>
+                            <script type="text/javascript">
+                                $("#successMessageAbsolute").click(function () {
+                                    $("#successMessageAbsolute").fadeOut(500);
+                                });
+                            </script>
                             ';
                     } else {
                         echo "Error updating record: " . mysqli_error($conn);
