@@ -23,19 +23,7 @@ var ImageDisplayAnfahrt = function (_React$Component) {
 			return React.createElement(
 				"div",
 				{ className: "full-scale" },
-				React.createElement(
-					"div",
-					{ className: "anfahrt-image-display", id: "image-display-yellow-transition" },
-					React.createElement(
-						"div",
-						{ "class": "col-12" },
-						React.createElement(
-							"h1",
-							{ "class": "text-label-center" },
-							"\xBB Anfahrt"
-						)
-					)
-				),
+				React.createElement("div", { className: "anfahrt-image-display", id: "image-display-yellow-transition" }),
 				React.createElement(
 					"div",
 					{ className: "col-12 yellow-arrow-padding-fix" },

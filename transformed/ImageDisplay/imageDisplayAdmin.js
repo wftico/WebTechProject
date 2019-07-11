@@ -23,19 +23,7 @@ var ImageDisplayAdmin = function (_React$Component) {
 			return React.createElement(
 				"div",
 				{ className: "full-scale" },
-				React.createElement(
-					"div",
-					{ className: "admin-image-display", id: "image-display-yellow-transition" },
-					React.createElement(
-						"div",
-						{ "class": "col-12" },
-						React.createElement(
-							"h1",
-							{ "class": "text-label-center" },
-							"\xBB Admin"
-						)
-					)
-				),
+				React.createElement("div", { className: "admin-image-display", id: "image-display-yellow-transition" }),
 				React.createElement(
 					"div",
 					{ className: "col-12 yellow-arrow-padding-fix" },

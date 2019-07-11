@@ -23,19 +23,7 @@ var ImageDisplayContact = function (_React$Component) {
 			return React.createElement(
 				"div",
 				{ className: "full-scale" },
-				React.createElement(
-					"div",
-					{ className: "contacts-image-display", id: "image-display-yellow-transition" },
-					React.createElement(
-						"div",
-						{ "class": "col-12" },
-						React.createElement(
-							"h1",
-							{ "class": "text-label-center" },
-							"\xBB Kontakt"
-						)
-					)
-				),
+				React.createElement("div", { className: "contacts-image-display", id: "image-display-yellow-transition" }),
 				React.createElement(
 					"div",
 					{ className: "col-12 yellow-arrow-padding-fix" },

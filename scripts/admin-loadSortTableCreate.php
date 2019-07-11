@@ -79,7 +79,7 @@
     // Arrays
     $idArr = array("fruehtracht", "fruehjahrsbluetenhon", "heidehonig", "kornblumenhonig", "lindenhonig", "robinienhonig", "sommerbluete", "waldhonig", "rapshonig", "sommertracht", "himbeerhonig");
     $dspArr = array();
-    $nameArr = array("Fr&uuml;htracht", "Fr&uuml;hjahrsbl&uuml;tenhonig", "Heidehonig", "Kornblumbenhonig", "Lindenhonig", "Robinienhonig", "Sommerbl&uuml;te", "Waldhonig", "Rapshonig", "Sommertracht", "Himbeerhonig" );
+    $nameArr = array("Fr&uuml;htracht", "Fr&uuml;hjahrsbl&uuml;tenhonig", "Heidehonig", "Kornblumenhonig", "Lindenhonig", "Robinienhonig", "Sommerbl&uuml;te", "Waldhonig", "Rapshonig", "Sommertracht", "Himbeerhonig" );
 
     // fills the dspArr with true/false values, regarding if they should be shown or not
     for($i = 0; $i < count($idArr); $i++){
