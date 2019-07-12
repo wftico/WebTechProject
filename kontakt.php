@@ -12,7 +12,7 @@
     <link rel="icon" href="./images/hauptstadtbiene-icon.png" type="image/x-icon" />
     <!-- insert fitting link -->
     
-    <title>Hobby-Imkerei L&uuml;ck</title>
+    <title>Hobby-Imkerei L&uuml;ck - Kontakt</title>
 </head>
 
 <body>

@@ -14,7 +14,7 @@
     <script src="./scripts/admin-sortiment.js" type="text/javascript"></script>
     <!-- insert fitting link -->
 
-    <title>Hobby-Imkerei L&uuml;ck</title>
+    <title>Hobby-Imkerei L&uuml;ck - Admin</title>
 </head>
 
 <body>
@@ -34,7 +34,6 @@
             <h2>Manage das Sortiment</h2>
             <p>Entsprechende Honigsorten können hinzugefügt oder aber auch gelöscht werden.
             </p>
-            <button onclick="myFunction()">Entferne Himbeerhonig (Toggle)</button>
         </div>
 
         <!-- REACT TEST -->

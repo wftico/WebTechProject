@@ -87,9 +87,6 @@
                         </div>
                 <!-- div col-12 end -->        
                 </div>
-                <div class="col-12" id="infoBegin">
-                    <p>Test</p>
-                </div>
 
         </div>
     <!-- wrapper end -->
