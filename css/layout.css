@@ -85,6 +85,13 @@ body {
     max-width: 100%;
 }
 
+.philosophie-image-display {
+    background-image: url("../images/ueber-uns-hauptstadtbiene-katarina-lueck.jpg");
+    background-size: cover;
+    height: 420px;
+    max-width: 100%;
+}
+
 .contacts-image-display {
     background-image: url("../images/kontakt-notizblock-hobby-imkerei-lueck-3.jpg");
     background-size: cover;
@@ -411,6 +418,9 @@ fieldset{
     padding-top: 30px;
 }
 
+.topSpacer{
+    margin-top: 20px;
+}
 
 /* FONTS */
 
@@ -524,7 +534,18 @@ a:hover {
     color: #ffe605;
 }
 
+.infoPercent{
+    font-size: 28px;
+    font-weight: bold;
+}
 
+.infoText{
+    color: white !important;
+}
+
+.infoLink{
+    color: black !important;
+}
 
 table {
     font-size: 18px;

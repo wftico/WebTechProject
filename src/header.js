@@ -13,6 +13,7 @@ class Header extends React.Component {
 				<div className="col-12">
 					<ul class="transparentBackground">
 						<li id="hauptstadtbiene"><a className="a-logo" href="./index.html">Hauptstadtbiene</a></li>
+						<li><a className="a-menu" href="./philosophie.html">Philosophie</a></li>
 						<li><a className="a-menu" href="./sortiment.php">Honigsortiment</a></li>
 						<li><a className="a-menu" href="./kontakt.php">Kontakt</a></li>
 						<li><a className="a-menu" href="./anfahrt.html">Anfahrt</a></li>

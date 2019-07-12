@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="./css/layout.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="./images/hauptstadtbiene-icon.png" type="image/x-icon" />
+    <!-- insert fitting link -->
+
+    <title>Hobby-Imkerei L&uuml;ck - Philosophie</title>
+</head>
+
+<body>
+
+    <!-- header gets loaded as react component in ./transformed/header.js -->
+    <header id="header">
+    </header>
+
+    <!-- index Display gets loaded as react component in ./transformed/ImageDisplay/imageDisplayIndex.js -->
+    <div id="philosophieImageDisplay"></div>
+
+
+    <!-- main content section -->
+    <div class="wrapper">
+        <div class="col-12">
+            <h1>Unsere Philosophie</h1>
+            <h2>Was uns am Herzen liegt ...</h2>
+            <p>
+                    Man hört es immer häufiger in den Nachrichten... &quot;Bienensterben&quot;.
+                    Es gibt viele äußere Faktoren die dazu führen können, dass ein Bienenvolk nicht überlebt. Doch auch als Imker kann man seinen
+                    Teil dazu leisten, dass die Bienen die besten Chancen haben, das Jahr zu &uuml;berstehen.
+                    Gerade in der industriellen Fertigung wird hier natürlich wenig Wert darauf gelegt. Wenn wir betrachten wie dort mit den Bienen
+                    umgegangen wird, wundert es uns kaum dass der Begriff Bienensterben so verbreitet ist. Wer sich f&uuml;r dieses Thema interessiert,
+                    dem empfehlen wir den Film <a href="http://www.morethanhoney-derfilm.at/" target="_blank">More Than Honey</a> anzusehen.
+                    
+                    <br /><br />
+                    Uns ist das Wohl der Bienen sehr wichtig und wir tun unser bestm&ouml;glichstes um daf&uuml;r zu sorgen, dass es unseren Bienen gut geht. Und gl&uuml;ckliche
+                    Bienen erleichtern uns auch die Arbeit. Und am Ende des Tages können Sie sich bei uns sicher sein, auch wirklich nur Honig in Ihrem Honigglas zu finden.
+            </p>
+        </div>
+        <!-- wrapper end -->
+    </div>
+
+    <div class="col-12" id="kontakt-top-border"></div>
+    <div class="col-12 background-yellow form-headlines yBox-spacerTop">
+        <div class="wrapper">
+            <div class="col-3">
+                    <p class="infoPercent">85 %</p>
+                    <p class="infoText">
+                        ging die Bienenpopulation im Nahen Osten in den letzten Jahren zurück
+                    </p>
+            </div>
+            <div class="col-3">
+                    <p class="infoPercent">53 %</p>
+                    <p class="infoText">
+                        der europäischen Bienenvölker starben in den vergangenen Wintern
+                    </p>
+            </div>
+            <div class="col-3">
+                    <p class="infoPercent">25 %</p>
+                    <p class="infoText">
+                        der Bienenvölker starben 2012/2013 in Deutschland
+                    </p>
+            </div>
+            <div class="col-3">
+                    <p class="infoPercent">90 %</p>
+                    <p class="infoText">
+                        der Bienenvölker verschwanden 2007 in den USA
+                    </p>
+            </div>
+            <div class="col12">
+                    <a href="http://www.bee-careful.com/de/bienenleben/bienengesundheit/" target="_blank" class="infoLink">Quelle: bee-careful.com</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-12" id="kontakt-bottom-border"></div>
+
+    <!-- bottom content wrapper -->
+    <div class="wrapper">
+        <div class="col-12 topSpacer">
+                <p>
+                        Häufig wird der Honig bei seiner Herstellung erhitzt. In manchen F&auml;llen muss der Honig sogar erhitzt werden um Keime
+                        abzut&ouml;ten. Jedoch gehen viele ern&auml;hrungsphysiologisch wertvolle Inhaltsstoffe im Honig verloren, wenn dieser auf &uuml;ber
+                        40&deg; erhitzt wird. Dies ist bei uns nicht der Fall und wir verzichten daher auf eine solche Erhitzung.<br /><br />
+                        Denken Sie kurz an Fieber. F&auml;llt Ihnen etwas auf? Auch f&uuml;r den Menschen ist eine hohe Temperatur gef&auml;hrlich, da
+                        bei einer hohen K&ouml;rpertemperatur das Eiwei&szlig; gerinnt und somit die Lebensfunktionen stoppt.
+                        &Auml;hnlich verh&auml;lt es sich beim Honig auch. Bei etwa 40&deg; werden
+                        im Honig Enzyme zerst&ouml;rt. Gerade wenn Sie Honigprodukte wegen seinen nachgesagten Heilwirkungen genie&szlig;en m&ouml;chten, ist es
+                        wichtig nicht erhitzte (&uuml;ber 40&deg;) Produkte zu konsumieren.<br /><br />
+                        Wenn Sie dazu weitere Fragen haben, wenden Sie sich einfach an uns. Bei uns erhalten Sie Honig, in dem noch alle wertvollen Inhaltsstoffe enthalten sind!
+                </p>
+        </div>
+    </div>
+
+    <!-- footer gets loaded as a react component stored at ./transformed/footer.js -->
+    <footer id="footer">
+    </footer>
+
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="./js/react/react.production-min.js"></script>
+    <script src="./js/react-dom/react-dom.production-min.js"></script>
+
+    <!-- Load React components. -->
+    <script src="./transformed/like_button.js"></script>
+    <script src="./transformed/footer.js"></script>
+    <script src="./transformed/header.js"></script>
+    <script src="./transformed/ImageDisplay/imageDisplayPhilosophie.js"></script>
+
+</body>
+
+</html>

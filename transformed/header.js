@@ -43,6 +43,15 @@ var Header = function (_React$Component) {
 																												null,
 																												React.createElement(
 																																"a",
+																																{ className: "a-menu", href: "./philosophie.html" },
+																																"Philosophie"
+																												)
+																								),
+																								React.createElement(
+																												"li",
+																												null,
+																												React.createElement(
+																																"a",
 																																{ className: "a-menu", href: "./sortiment.php" },
 																																"Honigsortiment"
 																												)
